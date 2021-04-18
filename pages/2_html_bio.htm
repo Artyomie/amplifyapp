@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<!--
+Name: Artem Latypov
+Date: 2/16/21
+Section number: 01
+PL#: 2
+Description: Creating a bio page that is linked to the homepage with a logo and picture - AL
+-->
+
+<html>
+    <!-- Must use Internal CSS for this assignment - AL -->
+    <head>
+        <title>Artem's Bio</title> <!-- Change heading to "Artem's Bio" - AL-->
+        <!-- Paste the style from PL2 directions - AL -->
+        <!-- Change style to make area behind banner red-->
+        <link rel="stylesheet" href="../css/screen.css">
+        <!-- Modify to be printed correctly - AL-->
+        <link rel="stylesheet" href="../css/print.css" media="print" type="text/css">
+    </head>
+    <body id="bodybio"> <!-- Body includes all that is shown to the user - AL -->
+        <table id="mtablebio"> <!-- Table Opening - AL -->
+            <tr> <!-- Table Row 1 - AL -->
+                <!-- Left top cell - AL -->
+                <td class="printremovecell"> <!-- Insert logo image - AL -->
+                    <img class="logo" src="../img/Logo.png" alt="Logo image">
+                </td> 
+                <!-- Right top cell - AL -->
+                <td id="bannerbio"> <!-- id creates a reference to be used in CSS internal style sheet - AL -->
+                    <h1>Artem's Bio</h1> <!-- Replace the banner text with "(your name)'s Bio" - AL -->
+                </td>
+            </tr>
+        
+            <tr> <!-- Table Row 2 - AL-->
+                <!-- Left bottom cell - AL -->
+                <td class="printremovecell"> <!-- Remove left most columns when printing - AL-->
+                    <nav>
+                        <div><a href="../index.htm">Home</a></div>
+                        <div><a href="3_html_resume.htm">HTML<br>Resume</a></div>
+                        <div><a href="4_css_schedule.htm">HTML<br>Schedule</a></div>
+                        <div><a href="5_ssi_for_nav.shtml">SSI<br>Nav</a></div>
+                        <div><a href="6_nav_style.htm">Navigation</a></div>
+                        <div><a href="7_print_style.htm">Print<br>Sheet</a></div>
+                        <div><a href="8_absolute_positioning.htm">Absolute<br>Position</a></div>
+                        <div><a href="9_fixed_positioning.htm">Fixed<br>Position</a></div>
+                    </nav>
+                </td> 
+                <!-- Right bottom cell - AL -->
+                <td>
+                <!-- Enter a couple of paragraphs describing the contents of the page - AL -->
+                    <table class="ntable"> <!-- Nested table, 2 columns, one row - AL -->
+                        <tr> <!-- Row #1 - AL -->
+                            <!-- Insert image into cell 1 - AL -->
+                            <td class="printremovecell"> <!-- File is originally 1080x1080, scale down by 3x -->
+                                <img id="bioimg" src="../img/BIO.JPG" alt="Bio image">
+                            </td> <!-- Cell 1 - AL -->
+                            <!--Write a paragraph of biographical material, "describe yourself as a student within a major; 
+                            give a little background (born where? went to school where? interests?), briefly state post-graduation objections" - AL -->
+                            <td> <!-- Cell 2 - AL -->
+                                <p> My name is Artem Latypov, I am majoring in Computer Science at Middlesex County College. 
+                                    I am studying in the pursuit of becoming a software developer and moving to Europe with my wife one day to start a career and family.
+                                    I was born in Russia, in the Siberian city of Omsk. My parents were programmers themselves and moved to Los Angeles, California when I was young.
+                                    We then later moved to New Jersey when my parent's job moved to New York and I attended East Brunswick High School. I originally came to MCC to major in
+                                    Chemistry, intending to study pharmacology - however I decided to study Computer Science instead since it had been my interest since I've been young. 
+                                    Some of my other interest are cooking with my wife, reading, playing instruments, and working on programming projects.
+                                    
+                                </p>
+                            </td> 
+                        </tr>
+                    </table> <!-- Nested table closing -->
+                </td>
+            </tr>
+        </table> <!-- Table closing -->
+    </body>
+</html>

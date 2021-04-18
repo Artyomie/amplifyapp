@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!--
+Name: Artem Latypov
+Date: 3/28/21
+Section number: 04
+PL#: 6
+Description: Add navigation style to the links - AL
+-->
+<html>
+    <!--Fixed everything in every other webpage - AL -->
+    <head>
+        <title>Navigation Style</title> <!-- Change title to navigation style -->
+        <!-- Convert every page to external css-->
+        <link rel="stylesheet" href="../css/screen.css">
+    </head>
+    <body>
+        <table class="mtable">
+            <tr>
+                <td> <!--Always include logo -AL -->
+                    <img class="logo" src="../img/Logo.png" alt="Logo image">
+                </td>
+                <td>
+                    <h1>Navigation Menu Style</h1> <!-- Update the banner text to Navigation menu style -AL -->
+                </td>
+            </tr>
+            <tr>
+                <td><!-- Link all other pages to all other pages -AL -->
+                    <nav><!-- Add nav in beginning of links -->
+                        <div><a href="../index.htm">Home</a></div>
+                        <div><a href="2_html_bio.htm">HTML<br>Biography</a></div>
+                        <div><a href="3_html_resume.htm">HTML<br>Resume</a></div>
+                        <div><a href="4_css_schedule.htm">HTML<br>Schedule</a></div>
+                        <div><a href="5_ssi_for_nav.shtml">SSI<br>Nav</a></div>
+                        <div><a href="7_print_style.htm">Print<br>Sheet</a></div>
+                        <div><a href="8_absolute_positioning.htm">Absolute<br>Position</a></div>
+                        <div><a href="9_fixed_positioning.htm">Fixed<br>Position</a></div>
+                    </nav>
+                </td>
+                <td class="ntablecell"> <!-- Nested table - AL -->
+                    <table class="ntable"> <!-- 11 rows, 6 columns, width 800px - AL -->
+                        <tr> 
+                            <th id="hcor">&nbsp</th> <!--Empty space, corner cell, no borders - AL -->
+                            <th>Monday</th> <!-- Each header is defined in screen.css - AL -->
+                            <th>Tuesday</th>
+                            <th>Wednesday</th>
+                            <th>Thursday</th>
+                            <th>Friday</th>
+                        </tr>
+                        <tr>
+                            <td class="hcol">9:00-<br>12:00</td> <!--Assigned class to each left column - AL-->
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="hcol">12:30</td>
+                            <td rowspan="5" class="class1">
+                                <h3 class="h3s">Web Programming<br>CSC-125</h3> <!--Header for class - AL-->
+                                <p class="p1">Remote live,<br>12:30-2:30</p>
+                                <p class="p2">Leoniy, 153</p> <!-- Have teacher and building number that I made up - AL-->
+                            </td>
+                            <td rowspan="3" class="class2"> <!--class2 class has no border at the bottom so it can look like its in another cell-->
+                                <h3 class="h3s">Information Security<br>CSC-116</h3>
+                                <p class="p1">Remote live,<br>12:30-1:50</p>
+                                <p class="p2">Burke, 205</p>
+                            </td>
+                            <td rowspan="5" class="class1">
+                                <h3 class="h3s">Web Programming<br>CSC-125</h3>
+                                <p class="p1">Remote live,<br>12:30-2:30</p>
+                                <p class="p2">Leoniy, 153</p>
+                            </td>
+                            <td rowspan="3" class="class2">
+                                <h3 class="h3s">Information Security<br>CSC-116</h3>
+                                <p class="p1">Remote live,<br>12:30-1:50</p>
+                                <p class="p2">Burke, 205</p>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="hcol">1:00</td>
+                            <!-- Deleted Cell - AL -->
+                            <!-- Deleted Cell - AL -->
+                            <!-- Deleted Cell - AL -->
+                            <!-- Deleted Cell - AL -->
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="hcol">1:30</td>
+                            <!-- Deleted Cell - AL -->
+                            <!-- Deleted Cell - AL -->
+                            <!-- Deleted Cell - AL -->
+                            <!-- Deleted Cell - AL -->
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="hcol">2:00</td>
+                            <!-- Deleted Cell - AL -->
+                            <td id="nopad">
+                                <div id="halfcell"></div> <!-- Cell is more than half filled in to show that the class ends at 1:50 - AL -->  
+                            </td>
+                            <!-- Deleted Cell - AL -->
+                            <td id="nopad">
+                                <div id="halfcell"></div></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="hcol">2:30</td>
+                            <!-- Deleted Cell - AL -->
+                            <td></td>
+                            <!-- Deleted Cell - AL -->
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="hcol">3:00</td>
+                            <td colspan="5" class="lunch">
+                                <h3 class="h3s">Lunch</h3> <!-- Include lunch for everyday (yes I eat lunch this late) - AL -->
+                            </td>
+                            <!-- Deleted cell - AL -->
+                            <!-- Deleted cell - AL -->
+                            <!-- Deleted cell - AL -->
+                            <!-- Deleted cell - AL -->
+                        </tr>
+                        <tr>
+                            <td class="hcol">3:30</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="hcol">4:00</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="hcol">4:30-<br>9:00</td>
+                            <td class="class3">
+                                <h3 class="h3s">Networking<br>CSC-200</h3>
+                                <p class="p1">Online Class <p>
+                                <p class="p2">Sanchez-gomez</p>
+                            </td>
+                            <td class="class4">
+                                <h3 class="h3s">Java Programming<br>CSC-162</h3>
+                                <p class="p1">Online Class <p>
+                                <p class="p2">Farrett</p>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
