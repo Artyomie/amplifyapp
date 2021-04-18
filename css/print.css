@@ -1,0 +1,100 @@
+/*******************
+PRINT SYTLE SHEET
+"display:none" added to all elements that need to be hidden.
+Replace all background colors with white (background-color:#fff;); replace all foreground colors with black (color:#000;)
+Replace pixels with points (px→pt), or inches (px→in).
+Replace sans-serif fonts with serif-fonts for primary text items.
+*******************/
+
+/*******************
+GLOBAL STYLE
+*******************/
+.mtable {padding: 5pt; border-collapse: collapse; border: 1pt solid black; background-color: #fff;
+                margin-left:auto; margin-right:auto;}
+td {padding: 5pt; border: 1pt solid black;}
+.logo {width: 100pt; height: 100pt; display: none;} 
+.logoimg {width: 100pt; height: 100pt; display: none;}
+
+/* Colors the link divisions and changes color when cursor hovers - AL */
+/*
+div {margin: 5px 5px; padding-left: 5px; padding-right: 5px; background-color: #3399ff}
+div:hover {background-color: #0066cc}
+*/
+
+.ntablecell {padding: 10pt;}
+.ntable {padding: 5pt; width: 800pt; border-collapse: collapse; background-color: #fff;}
+.printremovecell{display: none;}
+
+/****************** 
+NAVIGATION STYLE
+Upgrade CSS for navigation: On your external style sheet, css/screen.css, add selectors for nav, nav a, and nav a:hover. 
+Style these following Meyer 5. Make navigation links block elements, adjust padding, margin, background color, color, 
+text-decoration, and borders following Meyer. Do not neglect the right-border treatments. 
+You are expected to replicate Meyer's style, with your own choices of color, font, thickness, etc.
+*******************/
+
+nav {display: none;}
+nav div {margin: 5pt 5pt; padding-left: 5pt; padding-right: 5pt; background-color:#3399ff; border-right: 5pt solid #9A4623; display: none;}
+nav a {text-decoration: none; color: black; font-family: Arial; display: none;}
+nav div:hover {background-color: #0066cc; border-right: 5pt solid #2E9CCA; display: none;}
+nav a:hover {color: blue; display:none;}
+
+/*******************
+INDEX STYLE
+*******************/
+
+#mtableindex {padding: 5pt; border-collapse: collapse; border: 1pt solid black; background-color: #fff;
+                margin-left:auto; margin-right:auto; width: 800pt; height: 500pt}
+
+/*******************
+HOMETOWN STYLE
+*******************/
+
+#mtablehome {width: 100%; height: 100tx; background-color: #fff;}
+#h1h {text-align: center}
+
+/*******************
+2_HTML_BIO STYLE
+*******************/
+
+#bodybio {background-color: #fff; color: #000; font: 16pt times new roman, serif;} 
+#mtablebio {width: 800pt; height: 500pt; border-collapse: collapse; border: 1pt solid black; 
+            padding: 5pt; margin-left: auto; margin-right: auto;}
+#bannerbio {background-color: #000}
+#bioimg {width: 346pt; height: 346pt; display: none;}
+/*
+.abio {color: white;}
+*/
+
+/*******************
+3_HTML_RESUME STYLE && 7_PRINT_STYLE
+*******************/
+
+#ntableresume {padding: 1pt; width: 700pt; background-color: #fff}
+.heading {width: 100pt}
+
+/*******************
+4_CSS_SCHEDULE STYLE
+*******************/
+            
+/* Sets outside border color of background, difference colors for heading, side, and corner cells - AL */
+th {border-right: 1pt solid black; border-left: 1pt solid black; background-color: #fff}
+.hcol {background-color: #fff; width: 30pt; height: 30pt; border-left-color: #fff}
+#hcor {border-left-color: #fff}
+
+.class1 {background-color: #fff; text-align: center;}
+.lunch {background-color: #fff; text-align: center;}
+            
+.class2 {background-color: #fff; border-bottom-color: #fff; text-align: center; padding-top: 17pt}
+#halfcell {height: 25pt; width: 100%; padding: 0pt; background-color: #fff; margin-left: 0pt; margin-right: 0pt; margin-top: 0pt;
+    margin-bottom: 10pt; border-bottom: 1pt solid #000000; border-top: 3pt solid #fff; border-left: 1pt solid #fff; border-collapse: collapse;
+}
+#nopad {padding: 0pt; margin: 0pt;}
+
+.class3 {background-color: #fff; text-align: center;}
+.class4 {background-color: #fff; text-align: center;}
+            
+.h3s {font-family: Times new roman; font-size: 17pt}
+.p1 {font-family: Times new roman; font-size: 12pt; color: #000}
+.p2 {font-family: Times new roman; font-size: 10pt; color: #000}
+

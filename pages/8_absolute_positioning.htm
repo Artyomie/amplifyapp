@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<!--
+Name: Artem Latypov
+Date: 4/11/21
+Section number: 05
+PL#: 8
+Description: Change PL2 bio page to add divs and style with absolute positioning - AL
+-->
+
+<html>
+    <head>
+        <title>Absolute Positioning</title> <!-- Change heading to Absolute Positioning - AL-->
+        <link rel="stylesheet" href="../css/screen.css">
+        <!-- Modify to be printed correctly - AL-->
+        <link rel="stylesheet" href="../css/print.css" media="print" type="text/css">
+    </head>
+    <body id="bodyabsolute"> <!-- Remove main table structure - AL -->
+        <div id="bannerabsolute"> <!-- replace table cells with div elements surrounding the content -->
+            <img id="logoabsolute" src="../img/Logo.png" alt="Logo image">
+        </div>
+        <!-- I am unsure if you wanted the img and header in the same div but I could not get it to work how I wanted without separate divs -->
+        <div id="titleabsolute">
+            <h1 id="headerabsolute">Absolute Positioning</h1> <!-- Replace the banner text with Absolute positioning - AL -->
+        </div>
+        
+        <div id="navabsolute"> <!-- put nav section in div -->
+            <nav>
+                <div><a href="../index.htm">Home</a></div>
+                <div><a href="2_html_bio.htm">HTML<br>Biography</a></div>
+                <div><a href="3_html_resume.htm">HTML<br>Resume</a></div>
+                <div><a href="4_css_schedule.htm">HTML<br>Schedule</a></div>
+                <div><a href="5_ssi_for_nav.shtml">SSI<br>Nav</a></div>
+                <div><a href="6_nav_style.htm">Navigation</a></div>
+                <div><a href="7_print_style.htm">Print<br>Sheet</a></div>
+                <div><a href="9_fixed_positioning.htm">Fixed<br>Position</a></div>
+             </nav>
+        </div>
+        <div id="contentabsolute"> <!-- put nested table in div, keep all the contents the same - AL -->       
+            <div id="nimgabsolute">
+                <img id="bioimgabsolute" src="../img/BIO.JPG" alt="Bio image">
+            </div>
+            <div id="ncontentabsolute">
+                <p> My name is Artem Latypov, I am majoring in Computer Science at Middlesex County College. 
+                    I am studying in the pursuit of becoming a software developer and moving to Europe with my wife one day to start a career and family.
+                    I was born in Russia, in the Siberian city of Omsk. My parents were programmers themselves and moved to Los Angeles, California when I was young.
+                    We then later moved to New Jersey when my parent's job moved to New York and I attended East Brunswick High School. I originally came to MCC to major in
+                    Chemistry, intending to study pharmacology - however I decided to study Computer Science instead since it had been my interest since I've been young. 
+                    Some of my other interest are cooking with my wife, reading, playing instruments, and working on programming projects.
+            </div>
+        </div>
+    </body>
+</html>

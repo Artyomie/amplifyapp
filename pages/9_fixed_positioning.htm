@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<!--
+Name: Artem Latypov
+Date: 4/11/21
+Section number: 06
+PL#: 9
+Description: Change PL2 bio page to add divs and style with fixed positioning - AL
+-->
+
+<html>
+    <head>
+        <title>Fixed Positioning</title> <!-- Change heading to Fixed Positioning - AL-->
+        <link rel="stylesheet" href="../css/screen.css">
+        <!-- Modify to be printed correctly - AL-->
+        <link rel="stylesheet" href="../css/print.css" media="print" type="text/css">
+    </head>
+    <body id="bodyfixed"> <!-- Remove main table structure - AL -->
+        <div id="topborderline"> <!-- Having borders already and adding a 15px top border had the side borders from the div still show up and the top border removed so this covers it up -AL -->
+            &nbsp
+        </div>
+        <div id="bannerfixed"> <!-- replace table cells with div elements surrounding the content -->
+            <img id="logofixed" src="../img/Logo.png" alt="Logo image">
+        </div>
+        <!-- I am unsure if you wanted the img and header in the same div but I could not get it to work how I wanted without separate divs -->
+        <div id="titlefixed">
+            <h1 id="headerfixed">Fixed Positioning</h1> <!-- Replace the banner text with Fixed positioning - AL -->
+        </div>
+        
+        <div id="navfixed"> <!-- put nav section in div -->
+            <nav>
+                <div><a href="../index.htm">Home</a></div>
+                <div><a href="2_html_bio.htm">HTML<br>Biography</a></div>
+                <div><a href="3_html_resume.htm">HTML<br>Resume</a></div>
+                <div><a href="4_css_schedule.htm">HTML<br>Schedule</a></div>
+                <div><a href="5_ssi_for_nav.shtml">SSI<br>Nav</a></div>
+                <div><a href="6_nav_style.htm">Navigation</a></div>
+                <div><a href="7_print_style.htm">Print<br>Sheet</a></div>
+                <div><a href="8_absolute_positioning.htm">Absolute<br>Position</a></div>
+             </nav>
+        </div>
+        <div id="contentfixed"> <!-- put nested table in div, keep all the contents the same - AL -->       
+            <div id="nimgfixed">
+                <img id="bioimgfixed" src="../img/BIO.JPG" alt="Bio image">
+            </div>
+            <div id="ncontentfixed">
+                <p> My name is Artem Latypov, I am majoring in Computer Science at Middlesex County College. 
+                    I am studying in the pursuit of becoming a software developer and moving to Europe with my wife one day to start a career and family.
+                    I was born in Russia, in the Siberian city of Omsk. My parents were programmers themselves and moved to Los Angeles, California when I was young.
+                    We then later moved to New Jersey when my parent's job moved to New York and I attended East Brunswick High School. I originally came to MCC to major in
+                    Chemistry, intending to study pharmacology - however I decided to study Computer Science instead since it had been my interest since I've been young. 
+                    Some of my other interest are cooking with my wife, reading, playing instruments, and working on programming projects.
+            </div>
+        </div>
+    </body>
+</html>
+
+
+<!--
+Update the banner and title element with "Fixed Positioning".
+You will be making no additional changes to the structure or content of the page.
+Fix position navigation and banner: For the banner and navigation divs/elements, change position:absolute; to position:fixed;
+We want to force the page to scroll by adding to its length. We can either add content (e.g., see "Greeked text,") or we can simply add padding to the last content element. Try the latter:
+<p style="padding-bottom:1000px;">...this is the end of the last paragraph of content....
+To make the scrolling content appear to move under the banner, add a z-index to the banner div
+banner{position:fixed;....;z-index:3;....}
+To prevent the scrolling content from becoming visible above the banner, remove the offset in banner and add an equivalent amount of upper border the same color as the page background:
+div#banner{position:fixed;top:0;left:15px;border-top:15px solid #113;... (#113 is the same color as the background-color in the body rule)
+Use Photoshop and the procedures oulined in week 6, "Creating a simple background gradient" create a thin vertical gradient strip, with the original background color at the top and a fade to a lighter color at the bottom. Make the image 10px wide by 1000px high, as suggested in the procedure. Save in your images folder as blue_gradient_10w_1000h.jpg or a name which describes the image.
+Add the gradient to the background of the page using a repeated background image as part of the body rule:
+body{background:#113 url(images/blue_gradient_10w_1000h.jpg) repeat-x fixed;}
+(You may have to adjust the url to locate the images directory: e.g., ../images/etc.)
+-->
