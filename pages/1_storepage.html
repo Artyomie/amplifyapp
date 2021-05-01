@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Demo store page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script src="../scripts/root.js"></script>
+        <link rel="stylesheet" href="../css/screen.css">
+    </head>
+    <body>
+         <!-- Logo header above toolbar when page is loaded-->
+        <div class="logo">
+            <h1>Anyi's Kitchen! Store Page</h1>
+        </div>
+        
+        <!-- Fixed header toolbar -->
+        <div class="fheader" id="iheader"> 
+            <a href="../index.html">Home</a>
+            <a href="#about">About</a>
+            <a class="active" href="1_storepage.html" >Store</a>
+            <a href="#contact">Articles</a>
+            <a href="#blog">Recipe Index</a>
+            <a href="#cart" id="cart" onclick="openCart()">Cart</a>
+        </div>
+
+        <div id="cartsummary" class="cartsummary">
+            <div id="objects">
+            </div>
+        </div>
+        
+        <!-- Side navigation -->
+        <div id="sidenav" class="sidenav"> 
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+              <div class="navtitle">Recipes</div>
+              <div class="navbutton">
+                  <a href="#">All</a>
+              </div>
+              <div class="navbutton">
+                <a href="#">Breakfast</a>
+              </div>
+              <div class="navbutton">
+                <a href="#">Lunch</a>
+              </div>
+              <div class="navbutton">
+                <a href="#">Entree</a>
+              </div>
+              <div class="navbutton">
+                <a href="#">Dessert</a>
+              </div>
+              <div class="navtitle">Products</div>
+              <div class="navbutton">
+                <a href="#">Books</a>
+              </div>
+              <div class="navbutton">
+                <a href="#">Botanicals</a>
+              </div>
+              <div class="navbutton">
+                <a href="#">Food</a>
+              </div>
+        </div>
+        
+        <div class="navbar" id="inav">
+            <span onclick="openNav()" class="navbutton">&#9776;</span>
+        </div>
+        
+        <div class="background">
+            
+            <div class="content" id="hcontent">
+                
+                <div class="contenttitle">
+                    Store Page
+                </div>
+                
+                <div class="storerow">
+                    <div class="storeitem">
+                        <img src="../img/rosemary_jar.jpg" alt="rosemary jar"/>
+                        <div>
+                        <p>Rosemary</p>
+                        <p>$6.75</p>
+                        <input class="buybutton" type= "button" onclick="buybuttonclick_1()" value="Add to Cart" id="submitbutton">
+                        <div id="add"></div>
+                    </div>
+                </div>
+                
+                </div>
+                
+            </div>
+        </div>
+        
+    </body>
+</html>

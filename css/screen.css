@@ -6,6 +6,10 @@
     Author     : artemlatypov
 */
 
+/* TO DO:
+FIX TRANSITIONS, when transition for sidebar and cart elements is on, it trasitions when scrolled down
+*/
+
 /*****************
 Index Style
 *****************/
@@ -19,22 +23,26 @@ div.fheader {
     text-align: center; padding-bottom: 25px;
     }
 */
+    
+/* TOP NAVIGATION
+/* Top logo and title header above top navigation toolbar */
 
-div.content {
-    width: 50%;
-    position: absolute; top: 100px; left: 65px;
-    margin-top: 10px; padding: 5px;
-    background-color: #cccccc; /* Tempcolor */
-    border: 1px solid black;
-    }
+div.logo {
+    position: absolute; z-index: 3;
+    left: 0px; top: 0px;
+    width: 100%; height: 80px;
+    background-color: #ecfcfc;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
     
-    
-/* Add a black background color to the top navigation */
+/* Initial state of the top navigation toolbar */
 .fheader {
     width: 100%;
-    position: fixed; z-index: 3; top: 0; left: 0;
+    position: absolute; z-index: 4; top: 80px; left: 0; /* INITIAL STATE before event "window.onScroll" */
     background-color: #333;
     overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Style the links inside the navigation bar */
@@ -49,15 +57,46 @@ div.content {
 
 /* Change the color of links on hover */
 .fheader a:hover {
-    background-color: #ddd;
+    background-color: #60bcff;
     color: black;
 }
 
 /* Add a color to the active/current link */
 .fheader a.active {
-    background-color: #4CAF50;
+    background-color: #3c55e6;
     color: white;
 }
+
+/* Cart button on right side*/
+.fheader a#cart {
+    float: right;
+}
+
+/* CART SUMMARY MENU */
+.cartsummary {
+    height: 100%;
+    width: 0; /* Initial width */
+    position: fixed;
+    z-index: 4; /* Overlay in front of top header */
+    top: 128px;
+    float: right; margin-right: 0px; right: 0;/* Stick to right side of page */
+    background-color: white;
+    transition: width 0.2s;
+    box-shadow:0 0 7px rgba(0,0,0,0.9);
+}
+
+.checkoutbutton {
+    position: relative; float: bottom;
+    margin: auto; left:0; right: 0; top: 90%;
+    width: 90%;
+    border-radius: 2px;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    text-align: center;
+    background-color: #60bcff;
+}
+
 
 /* SIDE NAVIGATION */ 
 /* Fixed navigation bar before clicked open */
@@ -65,7 +104,8 @@ div.content {
     width: 45px; height: 100%;
     background-color: #f1f1f1;
     box-shadow:0 0 7px rgba(0,0,0,0.9);
-    position: fixed; left: 0px; top: 48px;
+    position: fixed; left: 0px; top: 128px;
+    z-index: 1;
     padding-left: 6px; padding-top: 2px;
 }
 span.navbutton {
@@ -74,40 +114,162 @@ span.navbutton {
 }
 .sidenav {
     height: 100%;
-    width: 0;
+    width: 0; /* Initial width */
     position: fixed;
-    z-index: 1; /* Overlay behind of top header */
-    top: 0;
+    z-index: 2; /* Overlay behind of top header */
+    top: 128px;
     left: 0;
-    background-color: #111;
+    background-color: #e5e5e5;
     overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
+    transition: width 0.5s;
+    padding-top: 15px; /* Distance links are from top of screen */
 }
 
 .sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
+    padding: 5px 5px 5px 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 14px;
+    color: black;
+    display: block;
+}
+
+.sidenav .navtitle {
+    padding: 5px 5px 5px 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 24px;
+    color: black;
+    display: block;
+}
+
+.sidenav .navbutton:hover {
+    background-color: #cccccc;
 }
 
 .sidenav a:hover {
-  color: #f1f1f1;
+    color: #f1f1f1;
 }
 
 .sidenav .closebtn {
-  position: absolute;
-  top: 48px;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 35px;
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    font-size: 36px;
+    margin-left: 10px;
 }
 
+
+
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 60px;} /* Distance links are from top of screen */
+  .sidenav {padding-top: 30px;} 
   .sidenav a {font-size: 18px;}
 }
 
+
+/* HOME CONTENT */
+
+/* Background image */
+div.background {
+    background: url(../img/background.jpeg) repeat;
+    position: absolute; z-index: 0;
+    width: 100%;
+    background-position: center;
+    background-size: auto;
+    /*background-repeat: repeat-y;*/
+}
+
+div.content {
+    width: 75%; margin: auto; height: 2500px;
+    position: relative; top: 120px; left: 0; right: 0;/* left: 65px; */
+    z-index: 1;
+    margin-top: 0px; padding: 0px; 
+    /*border: 1px solid black;*/
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: white;
+    transition: 0.2s;
+}
+
+div.contenttitle {
+    padding: 25px 10px; 
+    font-style: italic;
+    font-size: 32px;
+    border-bottom: 1px solid gray;
+}
+
+.row {
+    padding: 0px 10px;
+}
+
+.column {
+    float: left; /* Set cards side by side */
+    width: 23%; 
+    padding: 1% 1%; /* Padding between card */
+    /* 
+    1%<----- 23% ----->1%<----- 23% ----->1%<----- 23% ----->1%<----- 23% ----->1%
+    */
+}
+
+.titlecard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 0; /* Padding inside card */
+}
+
+.titlecard:hover {
+    opacity: .7;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+.cardimg {
+    float:left;
+    width: 100%;
+    margin-bottom: 0px; /* space below image before text */
+    transition: 0.2s;
+}
+
+.cardtext {
+    padding: 0% 5%; /* title text inside card */
+    font-family: serif;
+    transition: 0.2s;
+}
+
+.cardtext h4 {
+    position: relative; top: 5px;
+    font-size: 18px;
+    padding-bottom: 0px; margin-bottom: 0px;
+}
+
+.cardtext p {
+    font-size: 15px;
+    padding-top: 10px; margin-top: 0px;
+    padding-bottom: 5%;
+}
+
+/* 1_STORE PAGE content */
+
+.buybutton {
+    
+}
+    
+.storerow {
+    padding: 10px 10px;
+}
+
+.storeitem  {
+    float: left;
+    width: 25%;
+}
+
+.storeitem img {
+    width: 100%;
+}
+
+.buybutton {
+    border-radius: 2px;
+    font-size: 16px;
+    padding: 4px;
+    border: none;
+    text-align: center;
+    background-color: #ffcece;
+}
+    

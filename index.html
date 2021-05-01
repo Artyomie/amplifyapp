@@ -8,80 +8,139 @@ Artem Latypov.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
+        <script src="scripts/root.js"></script>
         <link rel="stylesheet" href="css/screen.css">
     </head>
+    
     <body>
-        <!-- Fixed header -->
-        <div class="fheader"> 
+        <!-- Logo header above toolbar when page is loaded-->
+        <div class="logo">
+            <h1>AWS Amplify Demo</h1>
+        </div>
+        
+        <!-- Fixed header toolbar -->
+        <div class="fheader" id="iheader"> 
             <a class="active" href="#home">Home</a>
-            <a href="#news">News</a>
-            <a href="#contact">Contact</a>
             <a href="#about">About</a>
+            <a href="pages/1_storepage.html">Store</a>
+            <a href="#contact">Articles</a>
+            <a href="#blog">Recipe Index</a>
+            <a href="#cart" id="cart" onclick="openCart()">Cart</a>
+        </div>
+        
+        <!-- Cart summary when opened -->
+        <div id="cartsummary" class="cartsummary">
+            <div id="objects">
+            </div>
+            <input class="checkoutbutton" type= "button" onclick="checkoutclick()" value="Checkout" id="submitbutton">
         </div>
         
         <!-- Side navigation -->
-        <div id="mySidenav" class="sidenav"> 
+        <div id="sidenav" class="sidenav"> 
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-              <a href="#">About</a>
-              <a href="#">Services</a>
-              <a href="#">Clients</a>
-              <a href="#">Contact</a>
-        </div>
-        <div class="navbar">
-            <span onclick="openNav()" class="navbutton">&#9776;</span>
-
-            <script>
-            function openNav() {
-              document.getElementById("mySidenav").style.width = "200px";
-            }
-
-            function closeNav() {
-              document.getElementById("mySidenav").style.width = "0";
-            }
-            </script>
+              <div class="navtitle">Recipes</div>
+              <div class="navbutton">
+                  <a href="#">All</a>
+              </div>
+              <div class="navbutton">
+                <a href="#">Breakfast</a>
+              </div>
+              <div class="navbutton">
+                <a href="#">Lunch</a>
+              </div>
+              <div class="navbutton">
+                <a href="#">Entree</a>
+              </div>
+              <div class="navbutton">
+                <a href="#">Dessert</a>
+              </div>
+              <div class="navtitle">Products</div>
+              <div class="navbutton">
+                <a href="#">Books</a>
+              </div>
+              <div class="navbutton">
+                <a href="#">Botanicals</a>
+              </div>
+              <div class="navbutton">
+                <a href="#">Food</a>
+              </div>
         </div>
         
-        <div class="content">
-            
-            <div>
-                <h1>Loren Ipsum Dolor</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-                <p>
-                    Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, 
-                    est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. 
-                    Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. 
-                    Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. 
-                    Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. 
-                    Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, 
-                    felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. 
-                    Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. 
-                    Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.
-                </p>
-                <p>
-                    Fusce convallis, mauris imperdiet gravida bibendum, nisl turpis suscipit mauris, sed placerat ipsum urna sed risus. 
-                    In convallis tellus a mauris. Curabitur non elit ut libero tristique sodales. Mauris a lacus. Donec mattis semper leo. 
-                    In hac habitasse platea dictumst. Vivamus facilisis diam at odio. Mauris dictum, nisi eget consequat elementum, 
-                    lacus ligula molestie metus, non feugiat orci magna ac sem. Donec turpis. Donec vitae metus. 
-                    Morbi tristique neque eu mauris. Quisque gravida ipsum non sapien. Proin turpis lacus, scelerisque vitae, elementum at, 
-                    lobortis ac, quam. Aliquam dictum eleifend risus. In hac habitasse platea dictumst. Etiam sit amet diam. 
-                    Suspendisse odio. Suspendisse nunc. In semper bibendum libero.
-                </p>
-                <p>
-                    Proin nonummy, lacus eget pulvinar lacinia, pede felis dignissim leo, vitae tristique magna lacus sit amet eros. 
-                    Nullam ornare. Praesent odio ligula, dapibus sed, tincidunt eget, dictum ac, nibh. Nam quis lacus. 
-                    Nunc eleifend molestie velit. Morbi lobortis quam eu velit. Donec euismod vestibulum massa. Donec non lectus. 
-                    Aliquam commodo lacus sit amet nulla. Cras dignissim elit et augue. Nullam non diam. 
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                    In hac habitasse platea dictumst. Aenean vestibulum. Sed lobortis elit quis lectus. 
-                    Nunc sed lacus at augue bibendum dapibus.
-                </p>
-            </div>
-            
-
+        <!-- Side navigation bar (when closed) -->
+        <div class="navbar" id="inav">
+            <span onclick="openNav()" class="navbutton">&#9776;</span>
         </div>
+        
+        <div class="background"> 
+            
+            <div class="content" id="hcontent">
+
+                <div class="contenttitle">
+                    Home Page
+                </div>
+                
+                <div class="row">
+
+                    <div class="column">
+                        <div class="titlecard" id="recipe1" onclick="clickrecipe1()">
+                            <img src="img/img_lights.jpeg" alt="light" class="cardimg">
+                            <div class="cardtext">
+                                <h4>Card 1</h4>
+                                <p>Text text text text text text Text text text text text text Text text text text text text</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="titlecard">
+                            <img src="img/img_mountains.jpeg" alt="mount" class="cardimg">
+                            <div class="cardtext">
+                                <h4>Card 2</h4>
+                                <p>Text text text text text text Text text text text text text Text text text text text text</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="titlecard">
+                            <img src="img/img_snow.jpeg" alt="snow" class="cardimg">
+                            <div class="cardtext">
+                                <h4>Card 3</h4>
+                                <p>Text text text text text text Text text text text text text Text text text text text text</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="titlecard">
+                            <img src="img/img_terra.jpeg" alt="terra" class="cardimg">
+                            <div class="cardtext">
+                                <h4>Card 4</h4>
+                                <p>Text text text text text text Text text text text text text Text text text text text text</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>End</div>
+
+            </div>
+        </div>
+        
     </body>
 </html>
+
+<!--
+
+Concept and design:
+
+Create a food blog website for Anyi, showing off her foods and creations using pictures she's taken
+Including Luna in the website
+
+This will have a set of pages for products, 
+like one page for fresh foods, 
+one page for fresh herbs and herbal creations (tinctures, mixtures, teas),
+one page for natural creations like candles and soaps,
+
+This is also for my web design final project
+-->
