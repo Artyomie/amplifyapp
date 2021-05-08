@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<!--
-Artem Latypov.
--->
+<!-- - - - - - - - - - - - - - - - - - - - - - - -
+   - Created on : Apr 19, 2021, 12:58:17 PM
+   - Author     : Artem Latypov
+   - HTML Homepage for site "Anyi's Kitchen" 
+   - @ www.anyiskitchen.com, hosted by AWS amplify
+
+   - Final Project for CSC-125-01 Web Design Markup Languages
+   - (See requirements bellow)
+   - I had tried to go beyond the topics discussed in class in order to
+   - improve my web design skills (especially Javascript). All code is
+   - written by myself in NetBeans with help from W3Schools. Many images are made by
+   - or taken by myself (unless otherwise stated). All content is written by myself and
+   - by chef Anyi Sanchez, whom this webpage is for.
+ - - - - - - - - - - - - - - - - - - - - - - - -->
+   
 <html>
     <head>
-        <title>Amplify Demo Site</title>
+        <title>Anyi's Kitchen!</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
@@ -15,24 +27,29 @@ Artem Latypov.
     <body>
         <!-- Logo header above toolbar when page is loaded-->
         <div class="logo">
-            <h1>AWS Amplify Demo</h1>
+            <img src="img/logo_img (3).png" alt="Anyi's Kitchen!">
         </div>
         
         <!-- Fixed header toolbar -->
         <div class="fheader" id="iheader"> 
             <a class="active" href="#home">Home</a>
-            <a href="#about">About</a>
             <a href="pages/1_storepage.html">Store</a>
-            <a href="#contact">Articles</a>
-            <a href="#blog">Recipe Index</a>
+            <a href="pages/2_about.html">About</a>
+            <a href="pages/3_recipe_main.html">Recipe Index</a>
+            <a href="pages/4_artciles.html">Articles</a>
             <a href="#cart" id="cart" onclick="openCart()">Cart</a>
         </div>
         
         <!-- Cart summary when opened -->
         <div id="cartsummary" class="cartsummary">
-            <div id="objects">
+            <div class="cartheader">Shopping Cart</div>
+            <div class="items">
+                <!-- Javascript Row content added here - AL-->
             </div>
-            <input class="checkoutbutton" type= "button" onclick="checkoutclick()" value="Checkout" id="submitbutton">
+            <div class ="cartbottomcontainer">
+                <div class="carttotal"></div>
+                <input class="checkoutbutton" type= "button" onclick="checkoutclick()" value="Checkout">
+            </div>
         </div>
         
         <!-- Side navigation -->
@@ -43,7 +60,7 @@ Artem Latypov.
                   <a href="#">All</a>
               </div>
               <div class="navbutton">
-                <a href="#">Breakfast</a>
+                <a href="pages/3_recipe_main.html#recipebreakfast">Breakfast</a>
               </div>
               <div class="navbutton">
                 <a href="#">Lunch</a>
@@ -56,13 +73,30 @@ Artem Latypov.
               </div>
               <div class="navtitle">Products</div>
               <div class="navbutton">
-                <a href="#">Books</a>
-              </div>
-              <div class="navbutton">
                 <a href="#">Botanicals</a>
               </div>
               <div class="navbutton">
+                <a href="#">Medicinal</a>
+              </div>
+              <div class="navbutton">
                 <a href="#">Food</a>
+              </div>
+              <div class="navbutton">
+                <a href="#">Books</a>
+              </div>
+              <div class="navtitle">Articles</div>
+              <div class="navbutton">
+                  <a href="#">Vegan Lifestyle</a>
+              </div>
+              <div class="navbutton">
+                  <a href="#">Sustainability</a>
+              </div>
+              <div class="navbutton">
+                  <a href="#">Gardening</a>
+              </div>
+              <div class="navtitle">Other</div>
+              <div>
+                  <a href="pages/0_template_page.html">Template</a>
               </div>
         </div>
         
@@ -79,52 +113,101 @@ Artem Latypov.
                     Home Page
                 </div>
                 
+                <div class="textdivider">   
+                    <div class="biopic">
+                        <img src='img/bio_pic(2).jpeg' alt="Bio Picture" class="biopic">
+                    </div>
+                    <div class="biotextcontainer">
+                        <div class="textheader">
+                            <strong class="textheader">Welcome!</strong>
+                        </div>
+                        <p> 
+                            I'm Anyi! And this is Luna! <!--TODO: include picture of Luna - AL -->
+                            In my kitchen I love to make delicious <b>vegan</b> food with <b>sustainable ingredients sourced locally and from my own garden</b>
+                            (Quality approved by Luna). Here you can find <b>recipes, vegan lifestyle articles, and cooking videos.</b> <br> <br>
+                            Our <i>'Farm to Pharmacy'</i> store has products organically home grown or foraged from nearby natural sources. 
+                            We have herbs, spices, extracts, and medicinal plants, and food from our menu that you can order!</p>
+                        <div class="aboutusbuttoncontainer">
+                            <input class="aboutusbutton" type="button" value="More about us" onclick="location.href='pages/2_about.html'">
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="row">
-
-                    <div class="column">
-                        <div class="titlecard" id="recipe1" onclick="clickrecipe1()">
-                            <img src="img/img_lights.jpeg" alt="light" class="cardimg">
-                            <div class="cardtext">
-                                <h4>Card 1</h4>
-                                <p>Text text text text text text Text text text text text text Text text text text text text</p>
+                    <div class="rowheader">
+                        Featured Recipes
+                    </div>
+                    
+                    <div class="recipecolumn">
+                        <div class="recipetitlecard" onclick="clickchickpearecipe()">
+                            <img src="img/recipe/IMG_9598.JPG" alt="Chickpea Curry" class="recipecardimg">
+                            <div class="recipecardtext">
+                                <p class="recipecardtitle">Chickpea Curry with Rice<p>
+                                <p class="recipesubtext">Spice and lime curry</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="column">
-                        <div class="titlecard">
-                            <img src="img/img_mountains.jpeg" alt="mount" class="cardimg">
-                            <div class="cardtext">
-                                <h4>Card 2</h4>
-                                <p>Text text text text text text Text text text text text text Text text text text text text</p>
+                    <div class="recipecolumn">
+                        <div class="recipetitlecard">
+                            <img src="img/recipe_tofuscramble.jpeg" alt="Tofu Scramble" class="recipecardimg">
+                            <div class="recipecardtext">
+                                <p class="recipecardtitle">Tofu Scramble</p>
+                                <p class="recipesubtext">With Mushrooms and Spinach</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="column">
-                        <div class="titlecard">
-                            <img src="img/img_snow.jpeg" alt="snow" class="cardimg">
-                            <div class="cardtext">
-                                <h4>Card 3</h4>
-                                <p>Text text text text text text Text text text text text text Text text text text text text</p>
+                    <div class="recipecolumn">
+                        <div class="recipetitlecard">
+                            <img src="img/recipe/IMG_3181.JPG" alt="Fried Zucchini" class="recipecardimg">
+                            <div class="recipecardtext">
+                                <p class="recipecardtitle">Fried Flowers & Vegetable Wrap</p>
+                                <p class="recipesubtext">Zucchini flowers and broccoli pita wrap</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="column">
-                        <div class="titlecard">
-                            <img src="img/img_terra.jpeg" alt="terra" class="cardimg">
-                            <div class="cardtext">
-                                <h4>Card 4</h4>
-                                <p>Text text text text text text Text text text text text text Text text text text text text</p>
+                    <div class="recipecolumn">
+                        <div class="recipetitlecard">
+                            <img src="img/recipe/IMG_8649.JPG" alt="Sushi" class="recipecardimg">
+                            <div class="recipecardtext">
+                                <p class="recipecardtitle">Vegan Sushi</p>
+                                <p class="recipesubtext">Purple rice, tofu, avocado, and carrots</p>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <div class="row">
+                    <div class="rowheader">
+                        Articles
+                    </div>    
 
-                <div>End</div>
-
+                    <div class="articlecolumn">
+                        <div class="articleblock" onclick="clickarticle1()">
+                            <img src="img/articles/article_native.jpeg" alt="Native food" class="articleblockimg">
+                            <div class="articleblocktext">
+                                <p class="articleblocktitle">Indigenous American Cuisine</p>
+                                <p class="articleblocksubtext">How the Native indigenous cultures of America cooked, 
+                                    how it was taken from them, and how it's being brought back</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="articlecolumn">
+                        <div class="articleblock" onclick="clickarticle2()">
+                            <img src="img/articles/sustainability.jpeg" alt="sustainability" class="articleblockimg">
+                            <div class="articleblocktext">
+                                <p class="articleblocktitle">Sustainability, and Environmental Responsibility</p>
+                                <p class="articleblocksubtext">Ways to live a sustainable and conscious life</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
+
         </div>
         
     </body>

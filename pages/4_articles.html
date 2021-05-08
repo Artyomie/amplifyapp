@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!-- - - - - - - - - - - - - - - - - - - - - - - -
+   - Created on : Apr 29, 2021, 12:58:17 PM
+   - Author     : Artem Latypov
+   - Style template for all pages, includes side-bar nav, 
+   - logo, top header, cart summary, and content container
+ - - - - - - - - - - - - - - - - - - - - - - - -->
+<html>
+    <head>
+        <title>Articles</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script src="../scripts/root.js"></script>
+        <link rel="stylesheet" href="../css/screen.css">
+    </head>
+    
+    <body>
+         <!-- Logo header above toolbar when page is loaded-->
+        <div class="logo">
+            <img src="../img/logo_img (3).png" alt="Anyi's Kitchen!">
+        </div>
+        
+        <!-- Fixed header toolbar -->
+        <div class="fheader" id="iheader"> 
+            <a href="../index.html">Home</a>
+            <a href="1_storepage.html" >Store</a>
+            <a href="2_about.html">About</a>
+            <a href="3_recipe_main.html">Recipe Index</a>
+            <a class="active" href="4_articles">Articles</a>
+            <a href="#cart" id="cart" onclick="openCart()">Cart</a>
+        </div>
+
+        <!-- Cart summary when opened -->
+        <div id="cartsummary" class="cartsummary">
+            <div class="cartheader">Shopping Cart</div>
+            <div class="items">
+                <!-- Javascript Row content added here - AL-->
+            </div>
+            <div class ="cartbottomcontainer">
+                <div class="carttotal"></div>
+                <input class="checkoutbutton" type= "button" onclick="checkoutclick()" value="Checkout">
+            </div>
+        </div>
+        
+        <!-- Side navigation -->
+        <div id="sidenav" class="sidenav"> 
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+              <div class="navtitle">Recipes</div>
+              <div class="navbutton">
+                  <a href="#">All</a>
+              </div>
+              <div class="navbutton">
+                <a href="#">Breakfast</a>
+              </div>
+              <div class="navbutton">
+                <a href="#">Lunch</a>
+              </div>
+              <div class="navbutton">
+                <a href="#">Entree</a>
+              </div>
+              <div class="navbutton">
+                <a href="#">Dessert</a>
+              </div>
+              <div class="navtitle">Products</div>
+              <div class="navbutton">
+                <a href="#">Botanicals</a>
+              </div>
+              <div class="navbutton">
+                <a href="#">Medicinal</a>
+              </div>
+              <div class="navbutton">
+                <a href="#">Food</a>
+              </div>
+              <div class="navbutton">
+                <a href="#">Books</a>
+              </div>
+              <div class="navtitle">Articles</div>
+              <div class="navbutton">
+                  <a href="#">Vegan Lifestyle</a>
+              </div>
+              <div class="navbutton">
+                  <a href="#">Sustainability</a>
+              </div>
+              <div class="navbutton">
+                  <a href="#">Gardening</a>
+              </div>
+              <div class="navtitle">Other</div>
+              <div>
+                  <a href="pages/0_template_page.html">Template</a>
+              </div>
+        </div>
+        
+        <div class="navbar" id="inav">
+            <span onclick="openNav()" class="navbutton">&#9776;</span>
+        </div>
+        
+        <div class="background">
+            
+            <div class="content" id="hcontent">
+                
+                <div class="contenttitle">
+                    Articles
+                </div>
+                
+                <div class="row">
+
+                    <div class="column">
+                        <div class="titlecard" id="recipe1" onclick="clickrecipe1()">
+                            <img src="../img/img_lights.jpeg" alt="light" class="cardimg">
+                            <div class="cardtext">
+                                <h4>Card 1</h4>
+                                <p>Text text text text text text Text text text text text text Text text text text text text</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="titlecard">
+                            <img src="../img/img_mountains.jpeg" alt="mount" class="cardimg">
+                            <div class="cardtext">
+                                <h4>Card 2</h4>
+                                <p>Text text text text text text Text text text text text text Text text text text text text</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="titlecard">
+                            <img src="../img/img_snow.jpeg" alt="snow" class="cardimg">
+                            <div class="cardtext">
+                                <h4>Card 3</h4>
+                                <p>Text text text text text text Text text text text text text Text text text text text text</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="titlecard">
+                            <img src="../img/img_terra.jpeg" alt="terra" class="cardimg">
+                            <div class="cardtext">
+                                <h4>Card 4</h4>
+                                <p>Text text text text text text Text text text text text text Text text text text text text</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </body>
+</html>

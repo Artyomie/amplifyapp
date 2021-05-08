@@ -10,10 +10,6 @@
 FIX TRANSITIONS, when transition for sidebar and cart elements is on, it trasitions when scrolled down
 */
 
-/*****************
-Index Style
-*****************/
-
 /*
 div.fheader {
     width: 100%; height: 100px;
@@ -28,18 +24,29 @@ div.fheader {
 /* Top logo and title header above top navigation toolbar */
 
 div.logo {
+    background: url(../img/logo_background.jpeg);
+    background-origin: content-box;
+    /*background-position: center;*/
+    background-size: cover;
     position: absolute; z-index: 3;
     left: 0px; top: 0px;
-    width: 100%; height: 80px;
+    width: 100%; height: 100px;
     background-color: #ecfcfc;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+}
+
+.logo img {
+    /*margin-left: 10%;*/
+    padding: 3px 0 3px 0;
+    height: 100%;
+    object-fit: cover;
 }
     
 /* Initial state of the top navigation toolbar */
 .fheader {
     width: 100%;
-    position: absolute; z-index: 4; top: 80px; left: 0; /* INITIAL STATE before event "window.onScroll" */
+    position: absolute; z-index: 4; top: 100px; left: 0; /* INITIAL STATE before event "window.onScroll" */
     background-color: #333;
     overflow: hidden;
     font-family: Arial, Helvetica, sans-serif;
@@ -78,16 +85,110 @@ div.logo {
     width: 0; /* Initial width */
     position: fixed;
     z-index: 4; /* Overlay in front of top header */
-    top: 128px;
+    top: 148px;
     float: right; margin-right: 0px; right: 0;/* Stick to right side of page */
     background-color: white;
     transition: width 0.2s;
     box-shadow:0 0 7px rgba(0,0,0,0.9);
 }
 
+.cartheader {
+    position: absolute; margin: auto; top: 0; left: 0; right: 0;
+    padding: 10px 0px;
+    font-size: 18px;
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+    border-bottom: 1px solid #cccccc;
+}
+
+/* Parent container for rows to be added */
+.items {
+    position: relative; top: 39px;
+    height: 65%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Class set to new row by script */
+.cartrow {
+    position: relative;
+    width: 100%; height: 20%;
+    padding: 5px 10px;
+    margin-bottom: 0px;
+    background-color: #fdf8f3;
+    border-bottom: 1px solid #f9eadb;
+    transition: 1s;
+}
+
+.cartrow:hover {
+    background-color: #f7f1ea;
+}
+
+.cartitemimg {
+    position: relative; float: left; left: 0px; top: auto; bottom: auto;
+    width: 20%; height: 100%;
+    object-fit: cover;
+}
+
+.cartitemtitle {
+    position: relative; padding: 5px 5px;
+    top: 5px;
+    left: 5px;
+    font-size: 15px;
+}
+
+.cartitemprice {
+    position: relative; float: left; padding: 5px 0px;
+    top: 5px; left: 5px;
+    font-size: 15px;
+}
+
+.cartitemquantity {
+    position: relative; padding: 6px 10px;
+    left: 15px;
+} 
+
+input.cartquantity {
+    width: 20px;
+    /*margin: 5px 0px 0px 0px;*/
+}
+
+.hiddenindex {
+    display: none;
+}
+
+/* Remove button for items */
+.removebutton {
+    display: none; /* Remove buttons appear before cart sum is opened? */
+    position: absolute; float: right;
+    right: 20px;
+    top: 20px;
+    padding: 5px 5px;
+    /*margin: 5px 0px 0px 0px;*/
+    border: none;
+    background-color: #ffafaf;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.removebutton:hover {
+    text-decoration: underline;
+    background-color: #fc7373;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+.cartbottomcontainer {
+    
+}
+
+.carttotal {
+    position: absolute; float: bottom;
+    left: 10px; right: 5px; bottom: 115px;
+
+}
+
 .checkoutbutton {
-    position: relative; float: bottom;
-    margin: auto; left:0; right: 0; top: 90%;
+    position: absolute; float: bottom;
+    margin: auto; left:0; right: 0; bottom: 65px;
     width: 90%;
     border-radius: 2px;
     font-size: 16px;
@@ -95,8 +196,8 @@ div.logo {
     border: none;
     text-align: center;
     background-color: #60bcff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
-
 
 /* SIDE NAVIGATION */ 
 /* Fixed navigation bar before clicked open */
@@ -104,7 +205,7 @@ div.logo {
     width: 45px; height: 100%;
     background-color: #f1f1f1;
     box-shadow:0 0 7px rgba(0,0,0,0.9);
-    position: fixed; left: 0px; top: 128px;
+    position: fixed; left: 0px; top: 148px;
     z-index: 1;
     padding-left: 6px; padding-top: 2px;
 }
@@ -166,9 +267,6 @@ span.navbutton {
   .sidenav a {font-size: 18px;}
 }
 
-
-/* HOME CONTENT */
-
 /* Background image */
 div.background {
     background: url(../img/background.jpeg) repeat;
@@ -179,9 +277,10 @@ div.background {
     /*background-repeat: repeat-y;*/
 }
 
+/* Primary content block */
 div.content {
-    width: 75%; margin: auto; height: 2500px;
-    position: relative; top: 120px; left: 0; right: 0;/* left: 65px; */
+    width: 80%; margin: auto; height: 2500px;
+    position: relative; top: 140px; left: 0; right: 0;/* left: 65px; */
     z-index: 1;
     margin-top: 0px; padding: 0px; 
     /*border: 1px solid black;*/
@@ -190,6 +289,7 @@ div.content {
     transition: 0.2s;
 }
 
+/* Main heading at top of content */
 div.contenttitle {
     padding: 25px 10px; 
     font-style: italic;
@@ -197,8 +297,31 @@ div.contenttitle {
     border-bottom: 1px solid gray;
 }
 
+/* HOME CONTENT */
+
 .row {
     padding: 0px 10px;
+}
+
+.rowheader {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 25px;
+    color: #262626;
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+}
+
+.rowheader::after {
+    position: relative;
+    margin-right: auto;  margin-left: auto;
+    width: 15%;
+    height: 1px;
+    margin-top: 5px;
+    display: block;
+    content: '';
+    background: #d86b4d;
+    bottom: 0;
+    left: 0;
 }
 
 .column {
@@ -245,26 +368,175 @@ div.contenttitle {
     padding-bottom: 5%;
 }
 
+
+.textdivider { /* Make height of text divider container change to fit the height of the image so when resized, the image stays the same */
+    position: relative;
+    width: auto; /*height: 50vh;*/
+    padding: 5px 5px 5px 10px; margin-top: 15px;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.3);
+    height: fit-content;
+    display: inline-block;
+    object-fit: contain;
+}
+
+div.biopic {
+    position: relative; float: right; right: 5px;
+    height: 100%; max-width: 35%; min-width: 10%;
+    object-fit: contain;
+}
+
+img.biopic {
+    position: relative;
+    display: block;
+    max-width: 100%; max-height: 100%;
+    margin-right: 0px;
+}
+
+.biotextcontainer {
+    object-fit: contain; height:content-box;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 55%;
+    display: inline-block;
+    padding: 50px 10px 50px 0;
+    margin: 0 0;
+    line-height: 1.4;
+}
+
+.biotextcontainer div.textheader {
+    text-align: center;
+}
+
+.biotextcontainer .textheader {
+    margin: 0 10px 0 10px;
+    font-size: 20px;
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+}
+
+.biotextcontainer p {
+    margin: 0 10px 0 10px;
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-size: 18px;
+}
+
+.aboutusbuttoncontainer {
+    margin-right: auto; margin-left: auto;
+    text-align: center;
+}
+
+.aboutusbutton { 
+    margin: 5px 5px;
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #ffcbe3;
+    border-radius: 3px;
+    /*box-sizing: border-box;*/
+    font-family: Georgia, serif;
+    font-size: 14px;
+    background-color: #ffcbe3;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.aboutusbutton:hover {
+    color: #000000;
+    background-color: #ff91b5;
+}
+
+
+
+
 /* 1_STORE PAGE content */
 
-.buybutton {
-    
+.storerowheader {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 15px;
+    color: #262626;
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
 }
-    
+
+.storerowheader::after {
+    position: relative;
+    margin-right: auto;  margin-left: auto;
+    width: 15%;
+    height: 1px;
+    margin-top: 5px;
+    display: block;
+    content: '';
+    background: #d86b4d;
+    bottom: 0;
+    left: 0;
+}
+
 .storerow {
     padding: 10px 10px;
 }
 
-.storeitem  {
-    float: left;
-    width: 25%;
+.storecolumn {
+    float: left; /* Set cards side by side */
+    width: 23%; 
+    padding: 1% 1%; /* Padding between card */
+    /* 
+    1%<----- 23% ----->1%<----- 23% ----->1%<----- 23% ----->1%<----- 23% ----->1%
+    */
 }
 
-.storeitem img {
-    width: 100%;
+.storetitlecard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 100%; height: 280px;
+    display: block;
+    padding: 0; /* Padding inside card */
+}
+
+.storetitlecard:hover {
+    opacity: .7;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+.itemimg {
+    float:left;
+    width: 100%; height: 170px;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 0px; /* space below image before text */
+}
+
+.storecardtext {
+    padding: 0% 5%; /* title text inside card */
+    font-family: serif;
+}
+
+.storecardtext h4 {
+    position: relative; top: 5px;
+    font-size: 18px;
+    padding-bottom: 0px; margin-bottom: 0px;
+    font-style: normal;
+}
+
+.itemtitle {
+    position: relative; top: 5px;
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-size: 17px;
+    padding-top: 10px;
+    padding-bottom: 10px; margin-bottom: 0px;
+    font-style: normal;
+    color: #262626;
+}
+
+.itemprice {
+    font-size: 14px;
+    font-family: Georgia, serif;
+    padding-top: 0px; margin-top: 0px;
+    padding-bottom: 0px;
+    font-style: italic;
+    color: #3f3f3f;
 }
 
 .buybutton {
+    position: relative; bottom: 5px;
+    float: bottom;
     border-radius: 2px;
     font-size: 16px;
     padding: 4px;
@@ -272,4 +544,180 @@ div.contenttitle {
     text-align: center;
     background-color: #ffcece;
 }
+
+/* 2_ABOUT content */
+
+.abouttextcontainer {
+    width: 50%;
+    line-height: 1.6;
     
+    padding: 0px 10px;
+    margin: 0px 10px;
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-size: 18px;
+    
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
+}
+
+
+
+div.aboutbiopic {
+    position: relative; float: right; right: 5px;
+    height: 100%; max-width: 35%; min-width: 10%;
+    object-fit: contain;
+}
+
+img.aboutbiopic {
+    position: relative;
+    display: block;
+    max-width: 100%; max-height: 100%;
+    margin-right: 0px;
+}
+
+
+/* 3_RECIPE_MAIN CONTENT */
+
+/* Standardize all recipe images to 1:1.3 on title cards, and (9:6) as original */
+
+.reciperow {
+    padding: 5px 10px;
+}
+
+.reciperowheader {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 15px;
+    color: #262626;
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+}
+
+.reciperowheader::after {
+    position: relative;
+    margin-right: auto;  margin-left: auto;
+    width: 15%;
+    height: 1px;
+    margin-top: 5px;
+    display: block;
+    content: '';
+    background: #d86b4d;
+    bottom: 0;
+    left: 0;
+}
+
+.recipecolumn {
+    float: left; /* Set cards side by side */
+    width: 23%; 
+    padding: 1% 1%; /* Padding between card */
+    /* 
+    1%<----- 23% ----->1%<----- 23% ----->1%<----- 23% ----->1%<----- 23% ----->1%
+    */
+}
+
+.recipetitlecard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 100%; height: 275px;
+    padding: 0; /* Padding inside card */
+}
+
+.recipetitlecard:hover {
+    opacity: .7;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+.recipecardimg {
+    float:left;
+    width: 100%; height: 170px;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 0px; /* space below image before text */
+}
+
+.recipecardtext {
+    padding: 0% 5%; /* title text inside card */
+    font-family: serif;
+}
+
+.recipecardtext h4 {
+    position: relative; top: 5px;
+    font-size: 18px;
+    padding-bottom: 0px; margin-bottom: 0px;
+    font-style: normal;
+}
+
+.recipecardtitle {
+    position: relative; top: 5px;
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-size: 17px;
+    padding-top: 10px;
+    padding-bottom: 10px; margin-bottom: 0px;
+    font-style: normal;
+    color: #262626;
+}
+
+.recipesubtext {
+    font-size: 14px;
+    font-family: Georgia, serif;
+    padding-top: 5px; margin-top: 0px;
+    padding-bottom: 5%;
+    font-style: italic;
+    color: #3f3f3f;
+}
+
+/* 4_ARTICLES CONTENT */
+
+.articlecolumn {
+    float: left; /* Set cards side by side */
+    width: 46%; 
+    padding: 1% 1%; /* Padding between card */
+    /* 
+    3%<----- 46% ----->3%<----- 46% ----->3%
+    */
+}
+
+.articleblock {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 100%; height: 445px;
+    padding: 0; /* Padding inside card */
+}
+
+.articleblock:hover {
+    opacity: .7;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+.articleblockimg {
+    float:left;
+    width: 100%; height: 340px;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 0px; /* space below image before text */
+}
+
+.articleblocktext {
+    margin-top: 10px;
+    padding: 10px 5%; /* text inside card */
+    font-family: serif;
+    text-align: center;
+}
+
+.articleblocktitle {
+    position: relative; top: 10px;
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-size: 17px;
+    padding-top: 16px;
+    padding-bottom: 12px; margin-bottom: 0px;
+    font-style: normal;
+    color: #262626;
+}
+
+.articleblocksubtext {
+    font-size: 14px;
+    font-family: Georgia, serif;
+    padding-top: 5px; margin-top: 0px;
+    padding-bottom: 5%;
+    font-style: italic;
+    color: #3f3f3f;
+}

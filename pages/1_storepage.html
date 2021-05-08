@@ -14,23 +14,36 @@ and open the template in the editor.
         <link rel="stylesheet" href="../css/screen.css">
     </head>
     <body>
-         <!-- Logo header above toolbar when page is loaded-->
+        <!-- Logo header above toolbar when page is loaded-->
         <div class="logo">
-            <h1>Anyi's Kitchen! Store Page</h1>
+            <img src="../img/logo_img (3).png" alt="Anyi's Kitchen!">
         </div>
         
         <!-- Fixed header toolbar -->
         <div class="fheader" id="iheader"> 
             <a href="../index.html">Home</a>
-            <a href="#about">About</a>
             <a class="active" href="1_storepage.html" >Store</a>
-            <a href="#contact">Articles</a>
-            <a href="#blog">Recipe Index</a>
+            <a href="2_about.html">About</a>
+            <a href="3_recipe_main.html">Recipe Index</a>
+            <a href="4_articles.html">Articles</a>
             <a href="#cart" id="cart" onclick="openCart()">Cart</a>
         </div>
 
+        <!-- Cart summary when opened -->
         <div id="cartsummary" class="cartsummary">
-            <div id="objects">
+            <div class="cartheader">Shopping Cart</div>
+            <div class="items">
+                <!--
+                <div class="cartitemimg"></div>
+                <div class="cartitemtitle"></div>
+                <div class="cartitemprice"></div>
+                <div class="cartitemquantity"></div>
+                <div class="removebutton"></div>
+                -->
+            </div>
+            <div class ="cartbottomcontainer">
+                <div class="carttotal"></div>
+                <input class="checkoutbutton" type= "button" onclick="checkoutclick()" value="Checkout">
             </div>
         </div>
         
@@ -55,13 +68,30 @@ and open the template in the editor.
               </div>
               <div class="navtitle">Products</div>
               <div class="navbutton">
-                <a href="#">Books</a>
-              </div>
-              <div class="navbutton">
                 <a href="#">Botanicals</a>
               </div>
               <div class="navbutton">
+                <a href="#">Medicinal</a>
+              </div>
+              <div class="navbutton">
                 <a href="#">Food</a>
+              </div>
+              <div class="navbutton">
+                <a href="#">Books</a>
+              </div>
+              <div class="navtitle">Articles</div>
+              <div class="navbutton">
+                  <a href="#">Vegan Lifestyle</a>
+              </div>
+              <div class="navbutton">
+                  <a href="#">Sustainability</a>
+              </div>
+              <div class="navbutton">
+                  <a href="#">Gardening</a>
+              </div>
+              <div class="navtitle">Other</div>
+              <div>
+                  <a href="pages/0_template_page.html">Template</a>
               </div>
         </div>
         
@@ -77,21 +107,143 @@ and open the template in the editor.
                     Store Page
                 </div>
                 
+                    
                 <div class="storerow">
-                    <div class="storeitem">
-                        <img src="../img/rosemary_jar.jpg" alt="rosemary jar"/>
-                        <div>
-                        <p>Rosemary</p>
-                        <p>$6.75</p>
-                        <input class="buybutton" type= "button" onclick="buybuttonclick_1()" value="Add to Cart" id="submitbutton">
-                        <div id="add"></div>
+                    <div class="storerowheader">
+                        Dried garden herbs
+                    </div>
+
+                    <div class="storecolumn">
+                        <div class="storetitlecard">
+                            <img src="../img/store/oreganoleaf.jpeg" alt="Oregano" class="itemimg">
+                            <div class="storecardtext">
+                                <p class="itemtitle">Oregano Leaf Jar 2oz</p>
+                                <p class="itemprice">$4.99</p>
+                                <input class="buybutton" type= "button" value="Add to Cart">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="storecolumn">
+                        <div class="storetitlecard">
+                            <img src="../img/store/rosemaryleaf.jpeg" alt="Rosemary" class="itemimg">
+                            <div class="storecardtext">
+                                <p class="itemtitle">Rosemary Leaf Jar 2oz</p>
+                                <p class="itemprice">$7.49</p>
+                                <input class="buybutton" type= "button" value="Add to Cart">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="storecolumn">
+                        <div class="storetitlecard">
+                            <img src="../img/store/thymeleaf.jpeg" alt="Thyme" class="itemimg">
+                            <div class="storecardtext">
+                                <p class="itemtitle">Thyme Leaf Jar 1oz</p>
+                                <p class="itemprice">$6.49</p>
+                                <input class="buybutton" type= "button" value="Add to Cart">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="storecolumn">
+                        <div class="storetitlecard">
+                            <img src="../img/store/sageleaf.jpg" alt="Sage" class="itemimg">
+                            <div class="storecardtext">
+                                <p class="itemtitle">Sage leaf bundle 1oz</p>
+                                <p class="itemprice">$2.99</p>
+                                <input class="buybutton" type= "button" value="Add to Cart">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
+                
+                <div class="storerow">
+
+                    <div class="storecolumn">
+                        <div class="storetitlecard">
+                            <img src="../img/store/oreganoleaf.jpeg" alt="Oregano" class="itemimg">
+                            <div class="storecardtext">
+                                <p class="itemtitle">Oregano Leaf Jar 4oz</p>
+                                <p class="itemprice">$8.99</p>
+                                <input class="buybutton" type= "button" value="Add to Cart">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="storecolumn">
+                        <div class="storetitlecard">
+                            <img src="../img/store/rosemaryleaf.jpeg" alt="Rosemary" class="itemimg">
+                            <div class="storecardtext">
+                                <p class="itemtitle">Rosemary Leaf Jar 4oz</p>
+                                <p class="itemprice">$13.99</p>
+                                <input class="buybutton" type= "button" value="Add to Cart">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="storecolumn">
+                        <div class="storetitlecard">
+                            <img src="../img/store/thymeleaf.jpeg" alt="Thyme" class="itemimg">
+                            <div class="storecardtext">
+                                <p class="itemtitle">Thyme Jar &nbsp;&nbsp; 2oz</p>
+                                <p class="itemprice">$11.99</p>
+                                <input class="buybutton" type= "button" value="Add to Cart">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="storecolumn">
+                        <div class="storetitlecard">
+                            <img src="../img/store/sageleaf.jpg" alt="Sage" class="itemimg">
+                            <div class="storecardtext">
+                                <p class="itemtitle">Sage leaf bundle 2oz</p>
+                                <p class="itemprice">$5.99</p>
+                                <input class="buybutton" type= "button" value="Add to Cart">
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
             </div>
+                
         </div>
         
     </body>
 </html>
+
+<!--
+Garden Products: (at least 12)
+- Rosemary X
+- Oregeno X
+- Thyme X
+- Sage + Sage Bundles X
+- Cilantro
+- Chamomile
+- Dill
+- Tarragon
+- Lavender
+- Mullien
+- Shiso
+- Passion Flower
+- Parsely
+- Echincea
+
+Medicinal Extracts
+- Passion Flower Tincture
+- Elderberry Tincture
+- Beet extract powder
+- Lilac extract
+- Ginseng extract in Honey
+- Ashwaganda extract
+
+Food Products:
+- Chocolate
+
+Drinks:
+- Lilac Hawthorn Wine
+- Elderberry Wine
+- Red Shiso and Yuzu Soda
+- Tarragon Soda
+-->
