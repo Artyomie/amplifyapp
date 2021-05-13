@@ -8,6 +8,7 @@
 
 /* TO DO:
 FIX TRANSITIONS, when transition for sidebar and cart elements is on, it trasitions when scrolled down
+FIX POPUP FADE IN
 */
 
 /*
@@ -19,6 +20,11 @@ div.fheader {
     text-align: center; padding-bottom: 25px;
     }
 */
+
+body {
+    overflow-x: hidden;
+    /* Hide content that clips to the side and overflows */
+}
     
 /* TOP NAVIGATION
 /* Top logo and title header above top navigation toolbar */
@@ -47,9 +53,9 @@ div.logo {
 .fheader {
     width: 100%;
     position: absolute; z-index: 4; top: 100px; left: 0; /* INITIAL STATE before event "window.onScroll" */
-    background-color: #333;
+    background-color: #433d4c;
     overflow: hidden;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; 
 }
 
 /* Style the links inside the navigation bar */
@@ -59,18 +65,19 @@ div.logo {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-weight: 200;
+    font-size: 19px;
 }
 
 /* Change the color of links on hover */
 .fheader a:hover {
-    background-color: #60bcff;
+    background-color: #a284d5;
     color: black;
 }
 
 /* Add a color to the active/current link */
 .fheader a.active {
-    background-color: #3c55e6;
+    background-color: #e67cc7;
     color: white;
 }
 
@@ -84,7 +91,7 @@ div.logo {
     height: 100%;
     width: 0; /* Initial width */
     position: fixed;
-    z-index: 4; /* Overlay in front of top header */
+    z-index: 2; /* Overlay behind of top header */
     top: 148px;
     float: right; margin-right: 0px; right: 0;/* Stick to right side of page */
     background-color: white;
@@ -261,6 +268,61 @@ span.navbutton {
 }
 
 
+/*********** SOCIAL MEDIA CONTACT Buttons ***********/
+/***** SIDE CONTACT *****/
+/* Taken from W3Schools - Al */
+
+div.sidecontactbuttons {
+    position: absolute;
+    right: 27px;
+    width: 30px; top: 140px;
+    margin: 10px 5px;
+}
+
+.fa {
+  padding: 15px 11px 15px 11px;
+  font-size: 30px;
+  width: 25px;
+  text-align: center;
+  text-decoration: none;
+  margin: 7px 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 30px;} 
@@ -297,7 +359,75 @@ div.contenttitle {
     border-bottom: 1px solid gray;
 }
 
-/* HOME CONTENT */
+
+/************** BOTTOM BAR ***************/
+
+div.bottombar {
+    position: relative; bottom: 0; float: bottom;
+    z-index: 6; 
+    width: 100%; height: 150px;
+    background-color: #433d4c;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; 
+}
+
+div.bottomlinks {
+    /*text-align: center;*/
+    float: left;
+    margin-left: 50px;
+    padding: 15px;
+}
+
+.bottomlinks a {
+    color: #ffffff;
+    font-size: 19px;
+    padding: 0 20px;
+    text-decoration: none;
+}
+
+div.bottomlinks::after {
+    border-bottom: 1px solid #60586d; 
+    width: 100%; height: 1px;
+    margin-top: 5px;
+    display: block;
+    content: ''; background: #60586d;
+    bottom: 0; left: 0;
+}
+
+p.bottomtext {
+    position: absolute; top: 25px; left: 55px;
+    margin-left: 15px;
+    display: block;
+    float: left; 
+    font-size: 14px;
+    color: #f2f2f2;
+}
+
+div.contactbuttons {
+    position: relative; margin-right: 7px;
+    float: right;
+}
+
+div.backtotop {
+    background-color: #e67cc7;
+    position: relative; left: auto; right: auto;
+    margin-left: auto; margin-right: auto;
+    text-align: center;
+    bottom: 0px; float: bottom;
+    padding: 5px 15px;
+    width: 100px;
+}
+
+.backtotop a {
+    font-size: 19px;
+    text-decoration: none;
+    color: white;
+}
+
+
+
+
+
+/******** HOME CONTENT **********/
 
 .row {
     padding: 0px 10px;
@@ -476,7 +606,7 @@ img.biopic {
 
 .storecolumn {
     float: left; /* Set cards side by side */
-    width: 23%; 
+    max-width: 23%; 
     padding: 1% 1%; /* Padding between card */
     /* 
     1%<----- 23% ----->1%<----- 23% ----->1%<----- 23% ----->1%<----- 23% ----->1%
@@ -535,7 +665,7 @@ img.biopic {
 }
 
 .buybutton {
-    position: relative; bottom: 5px;
+    position: relative; bottom: 5px; width: 100%;
     float: bottom;
     border-radius: 2px;
     font-size: 16px;
@@ -544,6 +674,60 @@ img.biopic {
     text-align: center;
     background-color: #ffcece;
 }
+
+/* Fade in and out class made with help from:
+https://blog.hubspot.com/website/css-fade-in
+
+JS function "addToCart() changes 'visibility: visible'"
+*/
+
+#addcartfadein {
+    visibility: hidden;
+    position: fixed; z-index: 1;
+    left: 50%; bottom: 30px;
+
+    min-width: 250px;
+    margin-left: -125px; padding: 16px;
+    
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    font-size: 17px;
+    
+    opacity: 100%;
+
+    transition: opacity 0.5s;
+    -webkit-user-select: none;
+}
+
+.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s , fadeout 1s 2s;
+    animation: fadein 0.5s , fadeout 1s 2s; 
+}
+
+@-webkit-keyframes fadein {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadein {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+
 
 /* 2_ABOUT content */
 
@@ -721,3 +905,71 @@ img.aboutbiopic {
     font-style: italic;
     color: #3f3f3f;
 }
+
+/* RECIPE PAGES */
+
+
+
+
+
+
+
+
+
+
+
+/********* REGISTRATION STYLE ***********/
+
+div#formname {
+    width: 500px;
+}
+
+input#firstname {
+    width: 100px;
+}
+
+input#lastname {
+    width: 100px;
+}
+
+label#fnamelabel {
+    font-size: 12px; margin-left: 52px;
+}
+
+label#lnamelabel {
+    font-size: 12px; margin-left: 78px;
+}
+
+div#gendersection {
+    margin-bottom: 5px;
+}
+
+input#streetnum {width: 50px}
+input#streetname {width: 100px}
+input#city {width: 100px}
+input#zip {width: 75px}
+label#streetnumlabel {font-size: 12px; margin-left: 70px;}
+label#streetnamelabel {font-size: 12px; margin-left: 43px}
+label#citylabel {font-size: 12px; margin-left: 70px}
+label#statelabel {font-size: 12px; margin-left: 85px}
+label#zipcodelabel {font-size: 12px; margin-left: 83px}
+
+div#phone {margin-top: 5px; margin-bottom: 5px}
+input#phone1 {width: 25px; margin-right: 4px}
+input#phone2 {width: 25px; margin-right: 4px}
+input#phone3 {width: 35px}
+
+div#bottomformsection {margin-left: 5px; margin-top: 5px}
+
+.textbox {
+  background-color: #fafafa;
+  border:0;
+  box-shadow:0 0 6px rgba(0,0,0,0.3);
+  transition: .3s box-shadow;
+}
+.textbox:hover {
+  box-shadow:0 0 7px rgba(0,0,0,0.9);
+}
+
+#submitbutton {position: absolute;}
+#verifymsg {position: relative; left: 65px; top: -10px}

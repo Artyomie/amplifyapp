@@ -143,7 +143,8 @@ function updateCart() {
     
 }
 
-// Load cart when page is re-loaded or page changed
+// Load cart when page is re-loaded or page changed. Session storage is recalled with a pseudo index concatedenated onto each
+// storage item. Inner HTML contents are added with all the values for theelements for each indexed item. 
 function loadCart() {
     var cartItems = document.getElementsByClassName("items")[0];
     if(cartItems.children.length <= 4 && sessionStorage.maxindex > 0) {
@@ -180,6 +181,16 @@ function loadCart() {
 }
 
 function addToCart(event) {
+    
+    // Show popup fade in animation for add to cart on bottom
+    var fadein = document.getElementById("addcartfadein");
+    fadein.style.visibility = "visible";
+    fadein.classList.add("show");
+    setTimeout(function(){ 
+        fadein.classList.remove("show");
+        fadein.style.visibility = "hidden";
+    }, 3000);
+    
     
     var button = event.target;
     var item = button.parentElement;
@@ -221,6 +232,7 @@ function addToCart(event) {
 
 }
 
+// Primary cart element. SessionStorage is used as a 'cookie' to save information across seperate tabs.
 function addCartElement(name, price, quantity, img) {
     var cartRow = document.createElement("div");
     cartRow.classList.add("cartrow"); // Add css class to new div
@@ -287,6 +299,8 @@ function removeCartItem(event) {
     sessionStorage.removeItem("price" + index);
     sessionStorage.removeItem("quantity" + index);
     sessionStorage.maxindex = Number(sessionStorage.maxindex) - 1;
+    
+    updateCartTotal();
     
 }
 
@@ -370,12 +384,47 @@ function resizeImg(img, w, h) {
 
 /******* LINK BUTTON SCRIPT ********/
 
+function checkoutclick() {
+    if(sessionStorage.getitem("registered") === "false") {
+        location.href = "pages/5_registration.html";
+    } else {
+        location.href = "pages/6_checkout.html";
+    }
+}
+
 function clickchickpearecipe() {
     location.href = "pages/1_storepage.html";
 }
 
 
 
+
+/* Cookie script taken from quirksmode.org
+function createCookie(name,value,days) {
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	}
+	else var expires = "";
+	document.cookie = name+"="+value+expires+"; path=/";
+}
+
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+}
+
+function eraseCookie(name) {
+	createCookie(name,"",-1);
+}
+ */
 
 
 

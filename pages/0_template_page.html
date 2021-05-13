@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <!-- - - - - - - - - - - - - - - - - - - - - - - -
-   - Created on : Apr 29, 2021, 12:58:17 PM
+   - Created on : Apr 29, 2021, 5:22:48 PM
    - Author     : Artem Latypov
    - Style template for all pages, includes side-bar nav, 
    - logo, top header, cart summary, and content container
+   - All links, social media links, bottom bar, background
  - - - - - - - - - - - - - - - - - - - - - - - -->
 <html>
     <head>
@@ -13,10 +14,14 @@
         
         <script src="../scripts/root.js"></script>
         <link rel="stylesheet" href="../css/screen.css">
+        
+        <!-- Social media button icons external links from W3Schools -AL -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     
     <body>
-         <!-- Logo header above toolbar when page is loaded-->
+        <a name="top"></a> <!-- To be linked back to top from bottom - AL -->
+        <!-- Logo header above toolbar when page is loaded-->
         <div class="logo">
             <img src="../img/logo_img (3).png" alt="Anyi's Kitchen!">
         </div>
@@ -28,6 +33,7 @@
             <a href="2_about.html">About</a>
             <a href="3_recipe_main.html">Recipe Index</a>
             <a href="4_articles">Articles</a>
+            <a href="5_registration.html">Sign In</a>
             <a href="#cart" id="cart" onclick="openCart()">Cart</a>
         </div>
 
@@ -97,6 +103,16 @@
         
         <div class="background">
             
+            <!-- Display social media buttons on side, content from W3Schools - AL -->
+            <div class="sidecontactbuttons">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-google"></a>
+                <a href="#" class="fa fa-linkedin"></a>
+                <a href="#" class="fa fa-youtube"></a>
+                <a href="#" class="fa fa-instagram"></a>
+            </div>
+            
             <div class="content" id="hcontent">
                 
                 <div class="contenttitle">
@@ -147,6 +163,30 @@
                 </div>
                 
             </div>
+            
+            <!-- Bottom bar - AL -->
+            <div class="bottombar">
+                <div class="bottomlinks">
+                    <a href="pages/2_about.html">About</a>
+                    <a href="pages/3_recipe_main.html">Contact</a>
+                    <a href="pages/5_registration.html">Register</a>
+                </div>
+                <div class="contactbuttons">
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-google"></a>
+                    <a href="#" class="fa fa-linkedin"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                </div>
+                <p class="bottomtext">
+                    <br><br>2021 Anyi's Kitchen. Website written and designed by Artem Latypov.
+                </p>
+                <div class="backtotop"> 
+                    <a href="#top">Back to top</a> 
+                </div>
+            </div>  
+            
         </div>
         
     </body>
