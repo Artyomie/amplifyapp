@@ -1,18 +1,81 @@
 /* 
  * 
+ *  Created on : May 7th, 2021, 7:08:42 PM
+ *  Author     : Artem Latypov  
  *  Validation for 5_Registration page
  *  Data to be sent via php to server database
+ *  
  */
+
+window.addEventListener("load", function () {
+    // form object - AL
+    var form = document.getElementById("registration");
+    var validationmsg = document.getElementById('verifymsg');
+
+    //Use JS AJAX to create an http request thru php to write data on server I/O file and send data to SQL database - AL
+    function AJAXsendData() {
+        var xmlhttp = new XMLHttpRequest();
+        //create formdata object to be sent to server - AL
+        const formdata = new FormData(form);
+        var registerfile = "../server/registrationdata.php";
+
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState === 4 && this.status === 200) {
+              //Print echo response text inside html - AL
+              validationmsg.innerHTML = '<p>' + this.responseText + '</p>';
+              
+              //Once the php script callback confirms that data was written on database, send user to checkout page - Al
+              if (this.responseText === "Registration complete") {
+                  sessionStorage.registered = 1; // Set to 1 or true - AL
+                  location.href = "6_checkout.html";
+              }
+          }
+        };
+        
+        // When submit goes through - AL
+        xmlhttp.addEventListener("load", function(event) {
+            alert("Registration succesful");
+        });
+
+        // Error sending request message  - AL
+        xmlhttp.addEventListener("error", function(event) {
+            alert("There was an error sending your request, please try again");
+        });
+
+        //Send data to php file with POST - AL
+        xmlhttp.open("POST", registerfile, true);
+        xmlhttp.setRequestHeader("Registration-data", "registration/form");
+        xmlhttp.send(formdata);
+        
+    }
+    
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        // Check if error message has anything added on, if not then submit form succesfully
+        if(strErrorMsg !== "") {
+            validationmsg.style.color="#ff3333";
+            validationmsg.innerHTML='<p>Check form for errors.<p>';
+            alert("Errors encountered:\n" + strErrorMsg);
+        } else {
+            // When errors are fixed, call ajax php function to submit data to server
+            validationmsg.style.color="#000000";
+            validationmsg.innerHTML='<p>Registration submitted succesfully.<p>';
+            AJAXsendData();
+        }
+    } );
+} );
+
 
 //Form validation script - AL
 var strErrorMsg;
 function validate() {
     strErrorMsg = ""; //Error msg is added on to with line breaks each error to display the full error list in one string - AL
-    var validationmsg = document.getElementById('verifymsg');
 
     // First name error validation (checks if its not empty, then checks if its a letter - AL
     if(notEmpty(document.getElementById('firstname'), "Enter one or more characters for First Name.")) {
         isAlphabet(document.getElementById('firstname'), "Enter only letter characters for First Name.");
+    } else {
+        fname = document.getElementById('firstname').value;
     }
 
     // Last name error validation - AL
@@ -54,17 +117,6 @@ function validate() {
     // Suggestion box validation - AL
     notEmpty(document.getElementById('suggestion'), "Enter a suggestion.");
 
-    // Check if error message has anything added on, if not then submit form succesfully
-    if(strErrorMsg !== "") {
-        validationmsg.style.color="#ff3333";
-        validationmsg.innerHTML='<p>Check form for errors.<p>';
-        alert("Errors encountered:\n" + strErrorMsg);
-        return false;
-    } else {
-        validationmsg.style.color="#000000";
-        validationmsg.innerHTML='<p>Form submitted succesfully.<p>';
-        return true;
-    }
 }
 
 function notEmpty(element, helperMsg) {

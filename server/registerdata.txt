@@ -1,1 +1,10 @@
-Registration data: fname: Artem%lname: Latypov%
+
+Registration data:%fname: asdf%lname: asdf%gender: male%snum: 16%sname: asdf%city: asdf%state: ca%zip: 08816%phone: 1231231234%
+Registration data:%fname:asdf%lname:asf%gender:male%snum:16%sname:asdf%city:asdf%state:ct%zip:09999%phone:1112223334%
+Registration data:%fname:artem%lname:latypov%gender:male%snum:16%sname:vreeland%city:east brunswick%state:ma%zip:08816%phone:7324290365%
+Registration data:%fname:Anyi%lname:Sanchez%gender:female%snum:16%sname:Wisteria%city:Fords%state:nj%zip:08863%phone:7326499527%
+Registration data:%fname:Anyi%lname:Sanchez%gender:female%snum:16%sname:Wisteria%city:Fords%state:nj%zip:08863%phone:7326499527%
+Registration data:%fname:asdf%lname:asdf%gender:male%snum:16%sname:asdf%city:asdf%state:ca%zip:08816%phone:1231231234%
+Registration data:%fname:artem%lname:fh%gender:male%snum:56%sname:cgj%city:fjh%state:ca%zip:00000%phone:1231231234%
+Registration data:%fname:asdf%lname:asdf%gender:other%snum:16%sname:asf%city:asdf%state:ca%zip:08816%phone:1231231234%
+Registration data:%fname:asd%lname:asd%gender:male%snum:16%sname:asdf%city:asdf%state:ca%zip:08816%phone:1231231234%

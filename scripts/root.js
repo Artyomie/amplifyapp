@@ -1,6 +1,6 @@
 /* 
  * 
- * Created on : Apr 19, 2021, 12:58:17 PM
+ * Created on : Apr 19, 2021, 1:02:19 PM
  * Author     : artemlatypov
  * Javascript page for index site functions
  * 
@@ -70,6 +70,17 @@ function showButtons() {
     }
 }
 
+// Initialize JSsession storage variables
+if(!sessionStorage.cartNum) {
+    sessionStorage.cartNum = 0;
+}
+if(!sessionStorage.maxindex) {
+    sessionStorage.maxindex = 0;
+}
+if(!sessionStorage.registered) {
+    sessionStorage.registered = 0;
+}
+
 // Check if DOM element are loaded before executing page loading code
 window.addEventListener('DOMContentLoaded', () => {
     ready();
@@ -127,13 +138,6 @@ function update() {
     
 }
 
-// Initialize JSsession storage variables
-if(!sessionStorage.cartNum) {
-    sessionStorage.cartNum = 0;
-}
-if(!sessionStorage.maxindex) {
-    sessionStorage.maxindex = 0;
-}
 
 // Update the cart on change
 function updateCart() {
@@ -385,10 +389,20 @@ function resizeImg(img, w, h) {
 /******* LINK BUTTON SCRIPT ********/
 
 function checkoutclick() {
-    if(sessionStorage.getitem("registered") === "false") {
-        location.href = "pages/5_registration.html";
+    // Registered session storage variable is either 0 for false or 1 for true
+    // Only set true after php server call back confirms
+    if(Number(sessionStorage.registered) === 0) {
+        if(sPage === "index.html") {
+            location.href = "pages/5_registration.html";
+        } else {
+            location.href = "5_registration.html";
+        }
     } else {
-        location.href = "pages/6_checkout.html";
+        if(sPage === "index.html") {
+            location.href = "pages/6_checkout.html";
+        } else {
+            location.href = "6_checkout.html";
+        }
     }
 }
 
@@ -426,6 +440,12 @@ function eraseCookie(name) {
 }
  */
 
+
+
+/******** STORE VALIDATION SCRIPT **********/
+/* Store checkout data will be sent out to server to be written on database via AJAX 
+ * HTTP request to PHP to send data to mySQL
+ * 6_checkout.html page validation to confirm purchase and send items to be saved on server */
 
 
 
