@@ -8,3 +8,5 @@ Registration data:%fname:asdf%lname:asdf%gender:male%snum:16%sname:asdf%city:asd
 Registration data:%fname:artem%lname:fh%gender:male%snum:56%sname:cgj%city:fjh%state:ca%zip:00000%phone:1231231234%
 Registration data:%fname:asdf%lname:asdf%gender:other%snum:16%sname:asf%city:asdf%state:ca%zip:08816%phone:1231231234%
 Registration data:%fname:asd%lname:asd%gender:male%snum:16%sname:asdf%city:asdf%state:ca%zip:08816%phone:1231231234%
+Registration data:%fname:a%lname:a%gender:male%snum:15%sname:asdf%city:asdf%state:ct%zip:08816%phone:1231231234%
+Registration data:%fname:artem%lname:latypov%gender:male%snum:15%sname:vreeland%city:eastbrunswick%state:nj%zip:08816%phone:7324290365%email:latypovartem273@gmail.com%

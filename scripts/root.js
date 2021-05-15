@@ -1,6 +1,11 @@
 /* 
+ * - CSC-125 FINAL PROJECT 
+ * - Name: Artem Latypov
+ * - Date: 5/14/2021
+ * - Section: CSC-125
+ * - Title: Final Project
  * 
- * Created on : Apr 19, 2021, 1:02:19 PM
+ * Created on : Apr 20, 2021, 1:02:19 PM
  * Author     : artemlatypov
  * Javascript page for index site functions
  * 
@@ -44,7 +49,31 @@ function closeNav() {
         document.getElementById("sidenav").style.width = "0";
         document.getElementById("hcontent").style.margin = "auto";
 }
+ 
+function loadDropDown() {
+    var dropdown = document.getElementsByClassName("navtitle");
     
+    for (var i = 0; i < dropdown.length; i++) {
+      dropdown[i].addEventListener("click", function() {
+          
+
+        if(this.style.backgroundColor !== '#f8a6e4') {
+            pressed = 1;
+            this.style.backgroundColor = '#f8a6e4';
+        } else {
+            this.style.backgroundColor = "#dcdbf2"; // Does not work??
+        }
+        
+        var dropdownContent = this.nextElementSibling;
+        if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+        } else {
+            dropdownContent.style.display = "block";
+        }
+      });
+    }    
+
+}
 
 /******* CART SCRIPT ********/
 
@@ -55,8 +84,11 @@ function openCart() {
         for(var i = 0; i < document.getElementsByClassName("removebutton").length; i++) {
             document.getElementsByClassName("removebutton")[i].style.display = "none";
         }
+        document.getElementById("cart").classList.remove("active");
     } else {
         document.getElementById("cartsummary").style.width = "300px";
+        document.getElementById("cart").classList.add("active");
+        updateCartTotal();
         showButtons();
     }
 }
@@ -84,6 +116,7 @@ if(!sessionStorage.registered) {
 // Check if DOM element are loaded before executing page loading code
 window.addEventListener('DOMContentLoaded', () => {
     ready();
+    loadDropDown();
 });
 
 // Check if DOM content has changed to be updated
@@ -103,7 +136,9 @@ console.log(sPage);
 // Code to be executed when new page opens
 function ready() {
     
+    console.log("ready");
     //getWidth();
+    update();
     updateCart();
     loadCart();
     
@@ -118,8 +153,10 @@ function ready() {
 // Code to be executed when page change
 function update() {
     
+    console.log("update");
     updateCart();
     showButtons();
+    updateCartTotal();
     
     // Get array for remove from cart buttons from cart
     var removeFromCartButtons = document.getElementsByClassName("removebutton");
@@ -143,7 +180,13 @@ function update() {
 function updateCart() {
     document.getElementById("cart").innerHTML = "Cart (" + sessionStorage.cartNum + ")";
     updateCartTotal();
+    
     /*console.log(sessionStorage.maxindex);*/
+    if (sPage === "6_checkout.html" && Number(sessionStorage.cartNum) > 0) {
+        document.getElementById("cartcheckoutsummaryitem").innerHTML = sessionStorage.cartNum + " items";
+    } else if (Number(sessionStorage.cartNum) > 0) {
+        updateCartTotal();
+    }
     
 }
 
@@ -185,6 +228,8 @@ function loadCart() {
 }
 
 function addToCart(event) {
+    
+    console.log("addtocart");
     
     // Show popup fade in animation for add to cart on bottom
     var fadein = document.getElementById("addcartfadein");
@@ -325,7 +370,25 @@ function updateCartTotal() {
     var formatedTotal = Math.round(totalAmount*100)/100;
     formatedTotal.toFixed(2);
     var totalcontents = `Total: $${formatedTotal}`;
-    total.innerHTML = totalcontents;
+    
+    var grandtotal = 0;
+    for(var i = 0; i < sessionStorage.maxindex; i++) {
+        var price = sessionStorage.getItem("price" + i);
+        var quantity = sessionStorage.getItem("quantity" + i);
+        var priceamount = Number(price.replace("$", ""));
+        
+        grandtotal += (priceamount * quantity);
+    }
+    var formatedGrandTotal = Math.round(grandtotal*100)/100;
+    formatedGrandTotal.toFixed(2);
+    var grandtotalcontents = `Total: $${formatedGrandTotal}`;
+    
+    if(formatedTotal !== formatedGrandTotal) {
+        total.innerHTML = grandtotalcontents;
+    } else {
+        total.innerHTML = totalcontents;
+    }
+
 }
 
 function updateQuantity(event) {
@@ -391,6 +454,7 @@ function resizeImg(img, w, h) {
 function checkoutclick() {
     // Registered session storage variable is either 0 for false or 1 for true
     // Only set true after php server call back confirms
+    
     if(Number(sessionStorage.registered) === 0) {
         if(sPage === "index.html") {
             location.href = "pages/5_registration.html";
@@ -406,8 +470,44 @@ function checkoutclick() {
     }
 }
 
+
+
+
+
 function clickchickpearecipe() {
-    location.href = "pages/1_storepage.html";
+    
+    if(sPage === "index.html") {
+        location.href = "pages/recipe_chickpeacurry.html";
+    } else {
+        location.href = "recipe_chickpeacurry.html";
+    }
+}
+
+function clickcakerecipe() {
+    
+    if(sPage === "index.html") {
+        location.href = "pages/recipe_earlcake.html";
+    } else {
+        location.href = "recipe_earlcake.html";
+    }
+}
+
+function clickhaupiarecipe() {
+    
+    if(sPage === "index.html") {
+        location.href = "pages/recipe_haupia.html";
+    } else {
+        location.href = "recipe_haupia.html";
+    }
+}
+
+function clickcrabcake() {
+    
+    if(sPage === "index.html") {
+        location.href = "pages/recipe_crabcakes.html";
+    } else {
+        location.href = "recipe_crabcakes.html";
+    }
 }
 
 
@@ -440,12 +540,114 @@ function eraseCookie(name) {
 }
  */
 
+/******* REGISTRATION DATA AND VALIDATION **********/
+/* scripts/validator.js contains form validation and send server post for data */
+
+function signinMessage() {
+    if(sPage === "5_registration") {
+        document.getElementsByClassName("registrationmessage").innerHTML = "please sign in"; 
+    }
+}
 
 
-/******** STORE VALIDATION SCRIPT **********/
+/******** STORE LOAD AND VALIDATION SCRIPT **********/
 /* Store checkout data will be sent out to server to be written on database via AJAX 
  * HTTP request to PHP to send data to mySQL
  * 6_checkout.html page validation to confirm purchase and send items to be saved on server */
+
+window.addEventListener('DOMContentLoaded', () => {
+    if (sPage === "6_checkout.html") {
+        checkoutloadCart();
+    }
+});
+
+function checkoutloadCart() {
+    var cartItems = document.getElementsByClassName("shoppingcart")[0];
+    if(cartItems.children.length <= 1 && sessionStorage.maxindex > 0) {
+        console.log(sessionStorage.maxindex);
+        for(var i = 0; i < sessionStorage.maxindex; i++) {
+            var name = sessionStorage.getItem("item" + i);
+            var price = sessionStorage.getItem("price" + i);
+            var quantity = sessionStorage.getItem("quantity" + i);
+            var img = sessionStorage.getItem("imgsrc" + i);
+            var index = i;
+            
+            var cartRow = document.createElement("div");
+            cartRow.classList.add("cartrow"); // Add css class to new div
+
+            var addCartRowContents = `
+                <img class="cartitemimg" src="${img}">
+                <div class="cartitemtitle">${name}</div>
+                <br>
+                <div class="cartitemprice">${price}</div>
+                <div class="cartitemquantity">
+                    <input class="cartquantity" type="number" value="${quantity}">
+                </div>
+                <div class="cartitemremove">
+                    <input class="removebutton" type="button" value="Remove">
+                </div>
+                <div class="hiddenindex">${index}</div>
+                <br>
+            `;
+
+            cartRow.innerHTML = addCartRowContents;
+            cartItems.append(cartRow);
+        }
+        
+        getCartTotal();
+        
+        
+    } else if(cartItems.children.length <= 1 && Number(sessionStorage.maxindex) === 0) {
+        console.log("empty");
+        var emptyRow = document.createElement("div");
+        emptyRow.classList.add("emptyrow"); // Add css class to new div
+
+        var addContents = `
+            
+            <p class="shoppingcartemptytitle">Your cart is empty!</p>
+            <p class="shoppingcartsubtext"><a href="1_storepage.html">Click here</a> to go to the store</p>
+            
+            `;
+
+        emptyRow.innerHTML = addContents;
+        cartItems.append(emptyRow);
+    }
+}
+
+function getCartTotal() {
+    var subtotal = document.getElementsByClassName("cartcheckouttotal")[0];
+    var cartRows = document.getElementsByClassName("cartrow");
+    var totalAmount = 0;
+    for(var i = 0; i < cartRows.length; i++) {
+        var cartrow = cartRows[i];
+        var priceElement = cartrow.getElementsByClassName("cartitemprice")[0];
+        var quantityElement = cartrow.getElementsByClassName("cartquantity")[0];
+        var price = Number(priceElement.innerText.replace("$", ""));
+        var quantity = quantityElement.value;
+        totalAmount += (price * quantity);
+    }
+    
+    // toFixed was not working to format on its own
+    var formatedTotal = Math.round(totalAmount*100)/100;
+    formatedTotal.toFixed(2);
+    var totalcontents = `Total: $${formatedTotal}`;
+    subtotal.innerHTML = totalcontents;
+    
+    // Calculate total from sessionStorage
+    var total = 0;
+    for(var i = 0; i < sessionStorage.maxindex; i++) {
+        var price = sessionStorage.getItem("price" + i);
+        var quantity = sessionStorage.getItem("quantity" + i);
+        var priceamount = Number(price.replace("$", ""));
+        
+        total += (priceamount * quantity);
+    }
+    var formatedGrandTotal = Math.round(total*100)/100;
+    formatedGrandTotal.toFixed(2);
+    var grandtotalcontents = `Total: $${formatedGrandTotal}`;
+    /*grandtotal.innerHTML = totalcontents;*/
+    console.log(formatedGrandTotal);
+}
 
 
 

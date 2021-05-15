@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <!-- - - - - - - - - - - - - - - - - - - - - - - -
+   - CSC-125 FINAL PROJECT - - - - - - - - - - - -
+   - Name: Artem Latypov
+   - Date: 5/14/2021
+   - Section: CSC-125
+   - Title: Final Project
+
    - Created on : Apr 19, 2021, 12:58:17 PM
    - Author     : Artem Latypov
    - HTML Homepage for site "Anyi's Kitchen" 
@@ -13,17 +19,25 @@
    - or taken by myself (unless otherwise stated). All content is written by myself and
    - by chef Anyi Sanchez, whom this webpage is for.
 
-   - Optimally used for Chrome on PC, zoom no more than 150%
+   - Optimally used for Chrome on PC, zoom no more than 150%.
  - - - - - - - - - - - - - - - - - - - - - - - -->
    
 <html>
     <head>
         <title>Anyi's Kitchen!</title>
+        <!-- Meta keywords to be included for SEO -Al -->
         <meta charset="UTF-8">
+        <meta name="author" content="Artem Latypov">
+        <meta name="description" content="Online webstore and vegan recipe food blog">
+        <meta name="keywords" content="HTML, CSS, JavaScript, PHP, AWS, Amplify, Kitchen, Store,
+              Recipe, Vegan, herbs, garden, sustainability">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <script src="scripts/root.js"></script>
         <link rel="stylesheet" href="css/screen.css">
+        
+        <!-- Have one single page be linked to a print style sheet - AL -->
+        <link rel="stylesheet" href="css/print.css" media="print" type="text/css">
         
         <!-- Social media button icons external links from W3Schools -AL -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -31,12 +45,12 @@
     
     <body>
         <a name="top"></a> <!-- To be linked back to top from bottom - AL -->
-        <!-- Logo header above toolbar when page is loaded-->
+        <!-- Logo header above toolbar when page is loaded - AL-->
         <div class="logo">
             <img src="img/logo_img (3).png" alt="Anyi's Kitchen!">
         </div>
         
-        <!-- Fixed header toolbar -->
+        <!-- Fixed header toolbar - AL -->
         <div class="fheader" id="iheader"> 
             <a class="active" href="#home">Home</a>
             <a href="pages/1_storepage.html">Store</a>
@@ -59,52 +73,91 @@
             </div>
         </div>
         
-        <!-- Side navigation -->
+        <!-- Side navigation - AL-->
         <div id="sidenav" class="sidenav"> 
-              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-              <div class="navtitle">Recipes</div>
-              <div class="navbutton">
-                  <a href="#">All</a>
-              </div>
-              <div class="navbutton">
-                <a href="pages/3_recipe_main.html#recipebreakfast">Breakfast</a>
-              </div>
-              <div class="navbutton">
-                <a href="#">Lunch</a>
-              </div>
-              <div class="navbutton">
-                <a href="#">Entree</a>
-              </div>
-              <div class="navbutton">
-                <a href="#">Dessert</a>
-              </div>
-              <div class="navtitle">Products</div>
-              <div class="navbutton">
-                <a href="#">Botanicals</a>
-              </div>
-              <div class="navbutton">
-                <a href="#">Medicinal</a>
-              </div>
-              <div class="navbutton">
-                <a href="#">Food</a>
-              </div>
-              <div class="navbutton">
-                <a href="#">Books</a>
-              </div>
-              <div class="navtitle">Articles</div>
-              <div class="navbutton">
-                  <a href="#">Vegan Lifestyle</a>
-              </div>
-              <div class="navbutton">
-                  <a href="#">Sustainability</a>
-              </div>
-              <div class="navbutton">
-                  <a href="#">Gardening</a>
-              </div>
-              <div class="navtitle">Other</div>
-              <div>
-                  <a href="pages/0_template_page.html">Template</a>
-              </div>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            
+            <button class="navtitle">Recipes</button>
+            <div class="dropdowncontainer">
+                <div class="navbutton">
+                    <a href="pages/3_recipe_main.html">All</a>
+                </div>
+                <div class="navbutton">
+                    <a href="pages/3_recipe_main.html#recipefeatured">Featured</a>
+                </div>
+                <div class="navbutton">
+                    <a href="pages/3_recipe_main.html#recipeappetizer">Appetizer</a>
+                </div>
+                <div class="navbutton">
+                    <a href="pages/3_recipe_main.html#recipebreakfast">Breakfast</a>
+                </div>
+                <div class="navbutton">
+                    <a href="pages/3_recipe_main.html#recipelunch">Lunch</a>
+                </div>
+                <div class="navbutton">
+                    <a href="pages/3_recipe_main.html#recipedinner">Dinner</a>
+                </div>
+                <div class="navbutton">
+                    <a href="pages/3_recipe_main.html#recipedessert">Dessert</a>
+                </div>
+            </div>
+            
+            <!-- Individual recipe links - AL -->
+            <button class="navtitle">Instructions</button>
+            <div class="dropdowncontainer">
+                <div class="navbutton">
+                    <a href="pages/recipe_chickpeacurry.html">Chickpea Curry</a>
+                </div>
+                <div class="navbutton">
+                    <a href="pages/recipe_earlcake.html">Earl Grey Sourdough Cake</a>
+                </div>
+                <div class="navbutton">
+                    <a href="pages/recipe_haupia.html">Haupia</a>
+                </div>
+                <div class="navbutton">
+                    <a href="pages/recipe_crabcakes.html">Crab Cakes</a>
+                </div>
+            </div>
+            
+            <button class="navtitle">Products</button>
+            <div class="dropdowncontainer">
+                <div class="navbutton">
+                    <a href="pages/1_storepage.html#storebotanicals">Botanicals</a>
+                </div>
+                <div class="navbutton">
+                    <a href="pages/1_storepage.html#storemedicinal">Medicinal</a>
+                </div>
+                <div class="navbutton">
+                    <a href="pages/1_storepage.html#storefood">Food</a>
+                </div>
+                <div class="navbutton">
+                    <a href="pages/1_storepage.html#storedrinks">Drinks</a>
+                </div>
+                <div class="navbutton">
+                    <a href="pages/1_storepage.html#storebooks">Books</a>
+                </div>
+            </div>
+            
+            <button class="navtitle">Articles</button>
+            <div class="dropdowncontainer">
+                <div class="navbutton">
+                    <a href="#">Vegan Lifestyle</a>
+                </div>
+                <div class="navbutton">
+                    <a href="#">Sustainability</a>
+                </div>
+                <div class="navbutton">
+                    <a href="#">Gardening</a>
+                </div>
+            </div>
+
+            <button class="navtitle">Other</button>
+            <div class="dropdowncontainer">
+                <div class="navbutton">
+                    <a href="pages/0_template_page.html">Template</a>
+                </div>
+            </div>
+            
         </div>
         
         
@@ -116,6 +169,7 @@
         <div class="background"> 
             
             <!-- Display social media buttons on side, content from W3Schools - AL -->
+            <!-- I do not want to link actual social media of site subject (Anyi) on this project currently due to privacy - AL -->
             <div class="sidecontactbuttons">
                 <a href="#" class="fa fa-facebook"></a>
                 <a href="#" class="fa fa-twitter"></a>
@@ -139,7 +193,7 @@
                         <div class="textheader">
                             <strong class="textheader">Welcome!</strong>
                         </div>
-                        <p> 
+                        <p> <!-- Introduction to site content - AL -->
                             I'm Anyi! And this is Luna! <!--TODO: include picture of Luna - AL -->
                             In my kitchen I love to make delicious <b>vegan</b> food with <b>sustainable ingredients sourced locally and from my own garden</b>
                             (Quality approved by Luna). Here you can find <b>recipes, vegan lifestyle articles, and cooking videos.</b> <br> <br>
@@ -156,9 +210,9 @@
                         Featured Recipes
                     </div>
                     
-                    <div class="recipecolumn">
-                        <div class="recipetitlecard" onclick="clickchickpearecipe()">
-                            <img src="img/recipe/IMG_9598.JPG" alt="Chickpea Curry" class="recipecardimg">
+                    <div class="recipecolumn"> <!-- Original Recipe -AL -->
+                        <div class="recipetitlecard" onclick="clickchickpearecipe()"> <!-- Links directly to recipe page -AL -->
+                            <img src="img/recipe/recipe_chichpea.JPG" alt="Chickpea Curry" class="recipecardimg">
                             <div class="recipecardtext">
                                 <p class="recipecardtitle">Chickpea Curry with Rice<p>
                                 <p class="recipesubtext">Spice and lime curry</p>
@@ -166,32 +220,32 @@
                         </div>
                     </div>
 
-                    <div class="recipecolumn">
-                        <div class="recipetitlecard">
-                            <img src="img/recipe_tofuscramble.jpeg" alt="Tofu Scramble" class="recipecardimg">
+                    <div class="recipecolumn"> <!-- Original Recipe by Anyi -AL -->
+                        <div class="recipetitlecard" onclick="clickcakerecipe()"> <!-- Links directly to recipe page -AL -->
+                            <img src="img/recipe/recipe_sourdoughcake.jpg" alt="Sourdough Cake" class="recipecardimg">
                             <div class="recipecardtext">
-                                <p class="recipecardtitle">Tofu Scramble</p>
-                                <p class="recipesubtext">With Mushrooms and Spinach</p>
+                                <p class="recipecardtitle">Earl Grey Sourdough Cake</p>
+                                <p class="recipesubtext">Bergamot Earl Gray tea cake made from sourdough</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="recipecolumn"> <!-- Original Recipe by Anyi -AL -->
+                        <div class="recipetitlecard" onclick="clickhaupiarecipe()"> <!-- Links directly to recipe page -AL -->
+                            <img src="img/recipe/recipe_haupia.jpg" alt="Haupia" class="recipecardimg">
+                            <div class="recipecardtext">
+                                <p class="recipecardtitle">Haupia</p>
+                                <p class="recipesubtext">Made from condensing coconut milk, poured with starfruit lemon gastrique</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="recipecolumn">
-                        <div class="recipetitlecard">
-                            <img src="img/recipe/IMG_3181.JPG" alt="Fried Zucchini" class="recipecardimg">
+                    <div class="recipecolumn"> <!-- Original Recipe by Anyi S. -AL -->
+                        <div class="recipetitlecard" onclick="clickcrabcake()">
+                            <img src="img/recipe/recipe_crabcake.jpg" alt="Crabcakes" class="recipecardimg">
                             <div class="recipecardtext">
-                                <p class="recipecardtitle">Fried Flowers & Vegetable Wrap</p>
-                                <p class="recipesubtext">Zucchini flowers and broccoli pita wrap</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="recipecolumn">
-                        <div class="recipetitlecard">
-                            <img src="img/recipe/IMG_8649.JPG" alt="Sushi" class="recipecardimg">
-                            <div class="recipecardtext">
-                                <p class="recipecardtitle">Vegan Sushi</p>
-                                <p class="recipesubtext">Purple rice, tofu, avocado, and carrots</p>
+                                <p class="recipecardtitle">Vegan Crab Cakes</p>
+                                <p class="recipesubtext">Made from chickpeas and hearts of palm</p>
                             </div>
                         </div>
                     </div>
@@ -233,7 +287,8 @@
                     <a href="pages/3_recipe_main.html">Contact</a>
                     <a href="pages/5_registration.html">Register</a>
                 </div>
-                <div class="contactbuttons">
+                <!-- I do not want to link actual social media of site subject (Anyi) on this project currently due to privacy - AL -->
+                <div class="contactbuttons"> <!-- Class's linked to external style sheet from W3Schools - AL -->
                     <a href="#" class="fa fa-facebook"></a>
                     <a href="#" class="fa fa-twitter"></a>
                     <a href="#" class="fa fa-google"></a>
@@ -241,7 +296,7 @@
                     <a href="#" class="fa fa-youtube"></a>
                     <a href="#" class="fa fa-instagram"></a>
                 </div>
-                <p class="bottomtext">
+                <p class="bottomtext"> <!-- Include name at bottom of every page - AL -->
                     <br><br>2021 Anyi's Kitchen. Website written and designed by Artem Latypov.
                 </p>
                 <div class="backtotop"> 

@@ -1,14 +1,18 @@
 /*
-    CSS external style sheet for AWS demo app for "AnLu"
-*/
-/* 
+    - CSC-125 FINAL PROJECT
+    - Name: Artem Latypov
+    - Date: 5/14/2021
+    - Section: CSC-125
+    - Title: Final Project
+/*
     Created on : Apr 19, 2021, 12:58:17 PM
     Author     : artemlatypov
+    CSS external style sheet for CSC-125 project for "anyi's kitchen site'"
 */
 
 /* TO DO:
 FIX TRANSITIONS, when transition for sidebar and cart elements is on, it trasitions when scrolled down
-FIX POPUP FADE IN
+FIX sidenav active stays after closed
 */
 
 /*
@@ -86,6 +90,11 @@ div.logo {
     float: right;
 }
 
+.active {
+    background-color: #e67cc7;
+    color: white;
+}
+
 /* CART SUMMARY MENU */
 .cartsummary {
     height: 100%;
@@ -116,7 +125,10 @@ div.logo {
     overflow-y: auto;
 }
 
+
+/***** Javascript created items: *****/
 /* Class set to new row by script */
+
 .cartrow {
     position: relative;
     width: 100%; height: 20%;
@@ -131,6 +143,7 @@ div.logo {
     background-color: #f7f1ea;
 }
 
+/* JS item content */
 .cartitemimg {
     position: relative; float: left; left: 0px; top: auto; bottom: auto;
     width: 20%; height: 100%;
@@ -227,8 +240,8 @@ span.navbutton {
     z-index: 2; /* Overlay behind of top header */
     top: 128px;
     left: 0;
-    background-color: #e5e5e5;
-    overflow-x: hidden;
+    background-color:#dcdbf2;
+    overflow: hidden;
     transition: width 0.5s;
     padding-top: 15px; /* Distance links are from top of screen */
 }
@@ -251,11 +264,30 @@ span.navbutton {
     display: block;
 }
 
+button.navtitle {
+    width: 100%;
+    padding: 5px 5px 5px 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    text-align: left;
+    font-size: 24px;
+    border: none;
+    border-bottom: 1px solid #dcdbf2;
+    background-color: #dcdbf2;
+    color: black;
+    display: block;
+}
+
 .sidenav .navbutton:hover {
     background-color: #cccccc;
 }
 
-.sidenav a:hover {
+button.navtitle:hover {
+    background-color:#c4b3f2;
+}
+
+.navbutton a:hover {
+    background-color:#dcb4e8;
     color: #f1f1f1;
 }
 
@@ -265,6 +297,33 @@ span.navbutton {
     right: 10px;
     font-size: 36px;
     margin-left: 10px;
+}
+
+/* Initial state of sidenav dropdown links*/
+.dropdowncontainer {
+    display: none;
+    position: relative; 
+    background-color:#f8d3ff;
+}
+
+.dropdowncontainer a {
+    margin-left: 8px;
+}
+
+/* JS called state of dropdown menu button */
+.dropdownactive {
+    background-color:#f8a6e4;
+    color: white;
+}
+
+.dropdowncontainer a:hover {
+    background-color:#dcb4e8;
+    color: #f1f1f1;
+}
+
+.dropdowncontainer .navbutton:hover {
+    background-color:#dcb4e8;
+    color: #f1f1f1;
 }
 
 
@@ -324,9 +383,14 @@ div.sidecontactbuttons {
   color: white;
 }
 
+/**** Other ****/
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 30px;} 
   .sidenav a {font-size: 18px;}
+}
+
+.hidden {
+    display: none;
 }
 
 /* Background image */
@@ -341,7 +405,8 @@ div.background {
 
 /* Primary content block */
 div.content {
-    width: 80%; margin: auto; height: 2500px;
+    width: 80%; margin: auto;
+    height: 2500px;
     position: relative; top: 140px; left: 0; right: 0;/* left: 65px; */
     z-index: 1;
     margin-top: 0px; padding: 0px; 
@@ -357,6 +422,23 @@ div.contenttitle {
     font-style: italic;
     font-size: 32px;
     border-bottom: 1px solid gray;
+}
+
+/* Custom page sizes */
+div.content#recipe {
+    height: 1000px;
+}
+
+div.content#recipe2 {
+    height: 1200px;
+}
+
+div.content#store {
+    height: 1800px;
+}
+
+div.content#about {
+    height: 800px;
 }
 
 
@@ -427,7 +509,7 @@ div.backtotop {
 
 
 
-/******** HOME CONTENT **********/
+/************** HOME CONTENT ***************/
 
 .row {
     padding: 0px 10px;
@@ -507,6 +589,8 @@ div.backtotop {
     height: fit-content;
     display: inline-block;
     object-fit: contain;
+    text-overflow: ellipsis; /* ellipsis does not work here */
+    overflow: hidden;
 }
 
 div.biopic {
@@ -532,22 +616,29 @@ img.biopic {
     padding: 50px 10px 50px 0;
     margin: 0 0;
     line-height: 1.4;
+    
 }
 
 .biotextcontainer div.textheader {
+    text-overflow: ellipsis;
     text-align: center;
 }
 
 .biotextcontainer .textheader {
+    text-overflow: ellipsis;
     margin: 0 10px 0 10px;
-    font-size: 20px;
+    font-size: 19px;
+    height: 1em;
+    /*font-size: 2.6vh;*/
     font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
 }
 
 .biotextcontainer p {
+    text-overflow: ellipsis;
     margin: 0 10px 0 10px;
     font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-    font-size: 18px;
+    font-size: 16px;
+    /*font-size: 1.9vh;*/
 }
 
 .aboutusbuttoncontainer {
@@ -580,12 +671,20 @@ img.biopic {
 /* 1_STORE PAGE content */
 
 .storerowheader {
+    top: 25px;
     text-align: center;
-    font-size: 18px;
-    margin-top: 15px;
+    font-size: 19px;
+    padding-top: 15px;
+    margin-bottom: 10px;
     color: #262626;
     font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
 }
+
+.storerowheader#rowtop {
+    top: 5px;
+    padding-top: 10px;
+}
+
 
 .storerowheader::after {
     position: relative;
@@ -616,7 +715,7 @@ img.biopic {
 .storetitlecard {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 100%; height: 280px;
-    display: block;
+    display:block;
     padding: 0; /* Padding inside card */
 }
 
@@ -636,6 +735,7 @@ img.biopic {
 .storecardtext {
     padding: 0% 5%; /* title text inside card */
     font-family: serif;
+    display:block;
 }
 
 .storecardtext h4 {
@@ -665,9 +765,8 @@ img.biopic {
 }
 
 .buybutton {
-    position: relative; bottom: 5px; width: 100%;
+    position: relative; bottom: 4px; width: 100%;
     float: bottom;
-    border-radius: 2px;
     font-size: 16px;
     padding: 4px;
     border: none;
@@ -767,12 +866,16 @@ img.aboutbiopic {
 /* Standardize all recipe images to 1:1.3 on title cards, and (9:6) as original */
 
 .reciperow {
-    padding: 5px 10px;
+    display: block;
+    padding: 10px 10px;
+    margin-bottom: 10px;
 }
 
 .reciperowheader {
+    display: block;
     text-align: center;
-    font-size: 18px;
+    font-size: 19px;
+    padding: 5px 0 5px 0;
     margin-top: 15px;
     color: #262626;
     font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
@@ -792,15 +895,17 @@ img.aboutbiopic {
 }
 
 .recipecolumn {
+    display: inline-block;
     float: left; /* Set cards side by side */
     width: 23%; 
-    padding: 1% 1%; /* Padding between card */
+    padding: 1% 1% 10px 1%; /* Padding between card */
     /* 
     1%<----- 23% ----->1%<----- 23% ----->1%<----- 23% ----->1%<----- 23% ----->1%
     */
 }
 
 .recipetitlecard {
+    display: inline-block;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 100%; height: 275px;
     padding: 0; /* Padding inside card */
@@ -848,6 +953,11 @@ img.aboutbiopic {
     padding-bottom: 5%;
     font-style: italic;
     color: #3f3f3f;
+}
+
+.recipetitlecardhidden {
+    display: inline-block;
+    width: 100%; height: 275px;
 }
 
 /* 4_ARTICLES CONTENT */
@@ -918,18 +1028,20 @@ img.aboutbiopic {
 
 
 
+
 /********* REGISTRATION STYLE ***********/
+
+#registration {
+    margin-top: 5px;
+}
+
+.field {
+    margin-top: 5px;
+    padding-top: 5px;
+}
 
 div#formname {
     width: 500px;
-}
-
-input#firstname {
-    width: 100px;
-}
-
-input#lastname {
-    width: 100px;
 }
 
 label#fnamelabel {
@@ -940,26 +1052,73 @@ label#lnamelabel {
     font-size: 12px; margin-left: 78px;
 }
 
+label#streetnumlabel {
+    font-size: 12px; margin-left: 70px;
+}
+label#streetnamelabel {
+    font-size: 12px; margin-left: 43px;
+}
+label#citylabel {
+    font-size: 12px; margin-left: 70px;
+}
+label#statelabel {
+    font-size: 12px; margin-left: 85px;
+}
+label#zipcodelabel {
+    font-size: 12px; margin-left: 83px;
+}
+
+input#firstname {
+    width: 100px;
+}
+
+input#lastname {
+    width: 100px;
+}
+
 div#gendersection {
     margin-bottom: 5px;
 }
 
-input#streetnum {width: 50px}
-input#streetname {width: 100px}
-input#city {width: 100px}
-input#zip {width: 75px}
-label#streetnumlabel {font-size: 12px; margin-left: 70px;}
-label#streetnamelabel {font-size: 12px; margin-left: 43px}
-label#citylabel {font-size: 12px; margin-left: 70px}
-label#statelabel {font-size: 12px; margin-left: 85px}
-label#zipcodelabel {font-size: 12px; margin-left: 83px}
+input#streetnum {
+    width: 50px
+}
+input#streetname {
+    width: 100px
+}
+input#city {
+    width: 100px
+}
+input#zip {
+    width: 75px
+}
 
-div#phone {margin-top: 5px; margin-bottom: 5px}
-input#phone1 {width: 25px; margin-right: 4px}
-input#phone2 {width: 25px; margin-right: 4px}
-input#phone3 {width: 35px}
+div#phone {
+    margin-top: 5px; margin-bottom: 5px;
+}
+input#phone1 {
+    width: 25px; margin-right: 4px;
+}
+input#phone2 {
+    width: 25px; margin-right: 4px;
+}
+input#phone3 {
+    width: 35px
+}
 
-div#bottomformsection {margin-left: 5px; margin-top: 5px}
+
+label#emaillabel {
+    font-size: 16px;
+}
+
+div.emailsection {
+    margin-top: 5px; margin-bottom: 5px;
+}
+
+input#email {
+    width: 120px;
+}
+
 
 .textbox {
   background-color: #fafafa;
@@ -971,5 +1130,226 @@ div#bottomformsection {margin-left: 5px; margin-top: 5px}
   box-shadow:0 0 7px rgba(0,0,0,0.9);
 }
 
-#submitbutton {position: absolute;}
-#verifymsg {position: relative; left: 65px; top: -10px}
+
+div#bottomformsection {
+    margin-left: 5px; margin-top: 10px;
+    display: inline-block;
+}
+
+#submitbutton {
+    position: relative; top: 5px; 
+}
+#verifymsg {
+    position: relative; left: 8px; top: 5px; display: inline-block;
+}
+
+#bypass {
+    position: relative; 
+    margin-left: 8px; top: 35px;
+}
+
+/********* CHECKOUT STYLE ***********/
+
+
+
+.checkouttitle {
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    padding: 25px 10px;
+    font-size: 32px;
+    text-align: center;
+}
+
+.shoppingcartcolumn {
+    position: relative; left: 5px;
+    margin-top: 5px;
+    float: left;
+    height: auto;
+    width: 65%;
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+.checkoutcolumn {
+    position: relative; right: 5px;
+    margin-top: 5px;
+    float: right;
+    width: 32%; height: 500px;
+    box-shadow: 0px 1px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Shopping cart container */
+.shoppingcart {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.shoppingcartheader {
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-size: 19px;
+    font-style: italic;
+    padding: 15px 10px;
+}
+
+.shoppingcartheader::after {
+    position: absolute; float: left;
+    /*margin-right: auto;  margin-left: auto;*/
+    width: 35%;
+    height: 1px;
+    margin-top: 0px;
+    display: block;
+    content: '';
+    background: #d86b4d;
+    top: 40px;
+    left: 5px;
+}
+
+/**** JS loaded content ****/
+
+/* If there is nothing in cart */
+.shoppingcart.emptyrow {
+    position: relative; display: block;
+    left: 10px; top: 5px;
+    width: 100%; height: 20%;
+    text-align: center;
+    margin: 10px 0 0 10px;
+    padding: 10px 0 0 10px;
+    transition: 1s;
+}
+
+.shoppingcartemptytitle {
+    margin: 10px 0 0 10px;
+    padding: 10px 0 0 10px;
+    font-size: 16px;
+}
+
+.shoppingcartsubtext {
+    margin-left: 10px;
+    padding: 10px 0 0 10px;
+    font-size: 14px;
+    font-family: Georgia, serif;
+    padding-top: 5px;
+    padding-bottom: 5%;
+    font-style: italic;
+    color: #3f3f3f;
+}
+
+/* If there is content in cart */
+.shoppingcart.cartrow {
+    position: relative; display: inline-block;
+    width: 90%; height: 15%;
+    padding: 5px 5px;
+    margin-bottom: 0px;
+    background-color: #fdf8f3;
+    border-bottom: 1px solid #f9eadb;
+    transition: 1s;
+    overflow-y: hidden;
+}
+
+.shoppingcart.cartrow:hover {
+    background-color: #f7f1ea;
+}
+
+.shoppingcart.cartitemimg {
+    position: relative; float: left; left: 0px; top: auto; bottom: auto;
+    display: inline-block;
+    max-width: 20%; height: 100%;
+    object-fit: cover;
+}
+
+.shoppingcart.cartitemtitle {
+    position: relative; padding: 5px 5px;
+    top: 5px;
+    left: 5px;
+    font-size: 15px;
+}
+
+.shoppingcart.cartitemprice {
+    position: relative; float: left; padding: 5px 0px;
+    top: 5px; left: 5px;
+    font-size: 15px;
+}
+
+.shoppingcart.cartitemquantity {
+    position: relative; padding: 6px 10px;
+    left: 15px;
+} 
+
+.shoppingcart.cartquantity {
+    width: 20px;
+    /*margin: 5px 0px 0px 0px;*/
+}
+
+.shoppingcart.hiddenindex {
+    display: none;
+}
+
+.shoppingcart.cartitemremove {
+    position: relative; right: 20px; top: 20px;
+}
+
+/* Remove button for items */
+.shoppingcart.removebutton {
+    display: block;
+    position: relative; float: right;
+    right: 20px;
+    top: 20px;
+    padding: 5px 5px;
+    /*margin: 5px 0px 0px 0px;*/
+    border: none;
+    background-color: #ffafaf;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.shoppingcart.removebutton:hover {
+    text-decoration: underline;
+    background-color: #fc7373;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+
+/** Check out columns **/
+.cartcheckout {
+    width: 100%;
+}
+
+.cartcheckoutsummary {
+    height: 10%;
+    border-bottom: 1px solid #f9eadb;
+    display: inline-block;
+}
+
+.cartcheckoutsummary b{
+    position: absolute; top: 5px;
+    float: left; left: 5px;
+    display: inline-block;
+}
+
+#cartcheckoutsummaryitem {
+    position: absolute; top: 5px;
+    float: right; right: 5px;
+    display: inline-block;
+}
+
+.cartcheckouttotal {
+    position: absolute; top: 35px;
+    float: left; left: 5px;
+}
+
+.purchasebutton {
+    position: absolute; 
+    float: bottom; bottom: 5px;
+}
+
+
+/********** RECIPE PAGES STYLE *************/
+
+.recipetextbox {
+    padding: 10px;
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-size: 16px;
+}
+
+.recipeimage {
+    position: relative; right: 5px;
+    float: right;
+    max-width: 33%;
+}

@@ -1,4 +1,9 @@
 /* 
+ * - CSC-125 FINAL PROJECT 
+ * - Name: Artem Latypov
+ * - Date: 5/14/2021
+ * - Section: CSC-125
+ * - Title: Final Project
  * 
  *  Created on : May 7th, 2021, 7:08:42 PM
  *  Author     : Artem Latypov  
@@ -28,13 +33,15 @@ window.addEventListener("load", function () {
               if (this.responseText === "Registration complete") {
                   sessionStorage.registered = 1; // Set to 1 or true - AL
                   location.href = "6_checkout.html";
+              } else if(this.reponseText === null) {
+                  alert("There was an error sending your request. No server response(PHP not connected).");
               }
           }
         };
         
         // When submit goes through - AL
         xmlhttp.addEventListener("load", function(event) {
-            alert("Registration succesful");
+            //alert("Registration succesful");
         });
 
         // Error sending request message  - AL
@@ -114,8 +121,11 @@ function validate() {
     // Phone number validation - AL
     phoneValidation(document.getElementById('phone1'), document.getElementById('phone2'), document.getElementById('phone3'));
 
-    // Suggestion box validation - AL
-    notEmpty(document.getElementById('suggestion'), "Enter a suggestion.");
+    // Email validation - AL
+    var email = document.getElementById('email');
+    if(notEmpty(email, "Enter your email")) {
+        emailValidation(email, "Please enter a valid email");
+    }
 
 }
 
@@ -246,4 +256,18 @@ function phoneValidation(phone1, phone2, phone3) {
     if(error !== "") {
         strErrorMsg += error;
     }
+}
+
+function emailValidation(email, helperMsg) {
+    var pattern = /[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}/;
+    
+    if(!email.value.match(pattern) && email.value !== "") {
+        strErrorMsg += helperMsg + "\n";
+        email.style.backgroundColor="#f4a8a8";
+        return false;
+    } else {
+        email.style.backgroundColor="#ffffff";
+        return true;
+    }
+    
 }

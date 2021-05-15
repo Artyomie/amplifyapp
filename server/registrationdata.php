@@ -10,6 +10,7 @@
     $state = htmlspecialchars($_POST['state']);
     $zip = htmlspecialchars($_POST['zip']);
     $phone = htmlspecialchars($_POST['phone1']) . htmlspecialchars($_POST['phone2']) . htmlspecialchars($_POST['phone3']);
+    $email = htmlspecialchars($_POST['email']);
     
     $filename = "registerdata.txt";
     // Check the existence of file
@@ -33,6 +34,7 @@
     fwrite($fileopen, "state:" . $state . "%");
     fwrite($fileopen, "zip:" . $zip . "%");
     fwrite($fileopen, "phone:" . $phone . "%");
+    fwrite($fileopen, "email:" . $email . "%");
     
     $fclose = fclose($fileopen);
     

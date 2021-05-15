@@ -1,0 +1,797 @@
+/*
+    - CSC-125 FINAL PROJECT
+    - Name: Artem Latypov
+    - Date: 5/14/2021
+    - Section: CSC-125
+    - Title: Final Project
+*/
+
+body {
+    overflow-x: hidden;
+    /* Hide content that clips to the side and overflows */
+}
+    
+/* TOP NAVIGATION
+/* Top logo and title header above top navigation toolbar */
+
+div.logo {
+    background: url(../img/logo_background.jpeg);
+    background-origin: content-box;
+    /*background-position: center;*/
+    background-size: cover;
+    position: absolute; z-index: 3;
+    left: 0pt; top: 0pt;
+    width: 100%; height: 100pt;
+    background-color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    display:none
+}
+
+.logo img {
+    /*margin-left: 10%;*/
+    padding: 3pt 0 3pt 0;
+    height: 100%;
+    object-fit: cover;
+    display:none
+}
+    
+/* Initial state of the top navigation toolbar */
+.fheader {
+    width: 100%;
+    position: absolute; z-index: 4; top: 100pt; left: 0; /* INITIAL STATE before event "window.onScroll" */
+    background-color: #fff;
+    overflow: hidden;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; 
+    display:none
+}
+
+/* Style the links inside the navigation bar */
+.fheader a {
+    float: left;
+    color: #000;
+    text-align: center;
+    padding: 14pt 16pt;
+    text-decoration: none;
+    font-weight: 200;
+    font-size: 19pt;
+    display:none;
+}
+
+/* Change the color of links on hover */
+.fheader a:hover {
+    background-color: #fff;
+    color: #000;
+    display:none;
+}
+
+/* Add a color to the active/current link */
+.fheader a.active {
+    background-color: #fff;
+    color: #000;
+    display:none;
+}
+
+/* Cart button on right side*/
+.fheader a#cart {
+    float: right;
+    display:none;
+}
+
+.active {
+    background-color: #fff;
+    color: #000;
+    display:none;
+}
+
+/* CART SUMMARY MENU */
+.cartsummary {
+    height: 100%;
+    width: 0; /* Initial width */
+    position: fixed;
+    z-index: 2; /* Overlay behind of top header */
+    top: 148pt;
+    float: right; margin-right: 0pt; right: 0;/* Stick to right side of page */
+    background-color: #fff;
+    transition: width 0.2s;
+    box-shadow:0 0 7pt rgba(0,0,0,0.9);
+    display:none;
+}
+
+.cartheader {
+    position: absolute; margin: auto; top: 0; left: 0; right: 0;
+    padding: 10pt 0pt;
+    font-size: 18pt;
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+    border-bottom: 1pt solid #cccccc;
+    display:none;
+}
+
+/* Parent container for rows to be added */
+.items {
+    position: relative; top: 39pt;
+    height: 65%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display:none;
+}
+
+
+/***** Javascript created items: *****/
+/* Class set to new row by script */
+
+.cartrow {
+    position: relative;
+    width: 100%; height: 20%;
+    padding: 5pt 10pt;
+    margin-bottom: 0pt;
+    background-color: #fff;
+    border-bottom: 1pt solid #f9eadb;
+    transition: 1s;
+    display:none;
+}
+
+.cartrow:hover {
+    background-color: #fff;
+    display:none;
+}
+
+/* JS item content */
+.cartitemimg {
+    position: relative; float: left; left: 0pt; top: auto; bottom: auto;
+    width: 20%; height: 100%;
+    object-fit: cover;
+    display:none;
+}
+
+.cartitemtitle {
+    position: relative; padding: 5pt 5pt;
+    top: 5pt;
+    left: 5pt;
+    font-size: 15pt;
+    display:none;
+}
+
+.cartitemprice {
+    position: relative; float: left; padding: 5pt 0pt;
+    top: 5pt; left: 5pt;
+    font-size: 15pt;
+    display:none;
+}
+
+.cartitemquantity {
+    position: relative; padding: 6pt 10pt;
+    left: 15pt;
+    display:none;
+} 
+
+input.cartquantity {
+    width: 20pt;
+    /*margin: 5pt 0pt 0pt 0pt;*/
+    display:none;
+}
+
+.hiddenindex {
+    display: none;
+}
+
+/* Remove button for items */
+.removebutton {
+    display: none; /* Remove buttons appear before cart sum is opened? */
+    position: absolute; float: right;
+    right: 20pt;
+    top: 20pt;
+    padding: 5pt 5pt;
+    /*margin: 5pt 0pt 0pt 0pt;*/
+    border: none;
+    background-color: #fff;
+    box-shadow: 0 4pt 8pt 0 rgba(0, 0, 0, 0.2);
+    display:none;
+}
+
+.removebutton:hover {
+    text-decoration: underline;
+    background-color: #fff;
+    box-shadow: 0 4pt 8pt 0 rgba(0, 0, 0, 0.5);
+    display:none;
+}
+
+.carttotal {
+    position: absolute; float: bottom;
+    left: 10pt; right: 5pt; bottom: 115pt;
+    display:none;
+
+}
+
+.checkoutbutton {
+    position: absolute; float: bottom;
+    margin: auto; left:0; right: 0; bottom: 65pt;
+    width: 90%;
+    border-radius: 2pt;
+    font-size: 16pt;
+    padding: 10pt;
+    border: none;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4pt 8pt 0 rgba(0, 0, 0, 0.2);
+    display:none;
+}
+
+/* SIDE NAVIGATION */ 
+/* Fixed navigation bar before clicked open */
+.navbar {
+    width: 45pt; height: 100%;
+    background-color: #fff;
+    box-shadow:0 0 7pt rgba(0,0,0,0.9);
+    position: fixed; left: 0pt; top: 148pt;
+    z-index: 1;
+    padding-left: 6pt; padding-top: 2pt;
+    display:none;
+}
+span.navbutton {
+    font-size: 40pt;
+    cursor:pointer;
+    display:none;
+}
+.sidenav {
+    height: 100%;
+    width: 0; /* Initial width */
+    position: fixed;
+    z-index: 2; /* Overlay behind of top header */
+    top: 128pt;
+    left: 0;
+    background-color:#fff;
+    overflow: hidden;
+    transition: width 0.5s;
+    padding-top: 15pt; /* Distance links are from top of screen */
+    display:none;
+}
+
+.sidenav a {
+    padding: 5pt 5pt 5pt 15pt;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 14pt;
+    color: black;
+    display: block;
+    display:none;
+}
+
+.sidenav .navtitle {
+    padding: 5pt 5pt 5pt 15pt;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 24pt;
+    color: black;
+    display: block;
+    display:none;
+}
+
+button.navtitle {
+    width: 100%;
+    padding: 5pt 5pt 5pt 15pt;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    text-align: left;
+    font-size: 24pt;
+    border: none;
+    border-bottom: 1pt solid #dcdbf2;
+    background-color: #fff;
+    color: black;
+    display: block;
+    display:none;
+}
+
+.sidenav .navbutton:hover {
+    background-color: #fff;
+    display:none;
+}
+
+button.navtitle:hover {
+    background-color:#fff;
+    display:none;
+}
+
+.navbutton a:hover {
+    background-color:#fff;
+    color: #000;
+    display:none;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 6pt;
+    right: 10pt;
+    font-size: 36pt;
+    margin-left: 10pt;
+    display:none;
+}
+
+/* Initial state of sidenav dropdown links*/
+.dropdowncontainer {
+    display: none;
+    position: relative; 
+    background-color:#fff;
+    display:none;
+}
+
+.dropdowncontainer a {
+    margin-left: 8pt;
+    display:none;
+}
+
+/* JS called state of dropdown menu button */
+.dropdownactive {
+    background-color:#fff;
+    color: #000;
+    display:none;
+}
+
+.dropdowncontainer a:hover {
+    background-color:#fff;
+    color: #000;
+    display:none;
+}
+
+.dropdowncontainer .navbutton:hover {
+    background-color:#fff;
+    color: #000;
+    display:none;
+}
+
+
+/*********** SOCIAL MEDIA CONTACT Buttons ***********/
+/***** SIDE CONTACT *****/
+/* Taken from W3Schools - Al */
+
+div.sidecontactbuttons {
+    position: absolute;
+    right: 27pt;
+    width: 30pt; top: 140pt;
+    margin: 10pt 5pt;
+    display:none;
+}
+
+.fa {
+  padding: 15pt 11pt 15pt 11pt;
+  font-size: 30pt;
+  width: 25pt;
+  text-align: center;
+  text-decoration: none;
+  margin: 7pt 5pt;
+  box-shadow: 0 4pt 8pt 0 rgba(0, 0, 0, 0.2);
+  border-radius: 2pt;
+  display:none;
+}
+
+.fa:hover {
+    opacity: 0.7;
+    display:none;
+}
+
+.fa-facebook {
+  background: #fff;
+  color: #000;
+  display:none;
+}
+
+.fa-twitter {
+  background: #fff;
+  color: #000;
+  display:none;
+}
+
+.fa-google {
+  background: #fff;
+  color: #000;
+  display:none;
+}
+
+.fa-linkedin {
+  background: #fff;
+  color: #000;
+  display:none;
+}
+
+.fa-youtube {
+  background: #fff;
+  color: #000;
+  display:none;
+}
+
+.fa-instagram {
+  background: #fff;
+  color: #000;
+  display:none;
+}
+
+/**** Other ****/
+@media screen and (max-height: 450pt) {
+  .sidenav {padding-top: 30pt;} 
+  .sidenav a {font-size: 18pt;}
+}
+
+.hidden {
+    display: none;
+}
+
+/* Background image */
+div.background {
+    display:none;
+    background: url(../img/background.jpeg) repeat;
+    position: absolute; z-index: 0;
+    width: 100%;
+    background-position: center;
+    background-size: auto;
+    /*background-repeat: repeat-y;*/
+}
+
+/* Primary content block */
+div.content {
+    width: 80%; margin: auto; height: 2500pt;
+    position: relative; top: 140pt; left: 0; right: 0;/* left: 65pt; */
+    z-index: 1;
+    margin-top: 0; padding: 0; 
+    /*border: 1pt solid black;*/
+    background-color: #fff;
+}
+
+/* Main heading at top of content */
+div.contenttitle {
+    padding: 25pt 10pt; 
+    font-style: italic;
+    font-size: 32pt;
+    border-bottom: 1pt solid black;
+}
+
+
+/************** BOTTOM BAR ***************/
+
+div.bottombar {
+    position: relative; bottom: 0; float: bottom;
+    z-index: 6; 
+    width: 100%; height: 150pt;
+    background-color: #fff;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; 
+    display:none;
+}
+
+div.bottomlinks {
+    /*text-align: center;*/
+    float: left;
+    margin-left: 50pt;
+    padding: 15pt;
+    display:none;
+}
+
+.bottomlinks a {
+    color: #000;
+    font-size: 19pt;
+    padding: 0 20pt;
+    text-decoration: none;
+    display:none;
+}
+
+div.bottomlinks::after {
+    border-bottom: 1pt solid #60586d; 
+    width: 100%; height: 1pt;
+    margin-top: 5pt;
+    display: block;
+    content: ''; background: #60586d;
+    bottom: 0; left: 0;
+    display:none;
+}
+
+p.bottomtext {
+    position: absolute; top: 25pt; left: 55pt;
+    margin-left: 15pt;
+    display: block;
+    float: left; 
+    font-size: 14pt;
+    color: #000;
+    display:none;
+}
+
+div.contactbuttons {
+    position: relative; margin-right: 7pt;
+    float: right;
+    display:none;
+}
+
+div.backtotop {
+    background-color: #fff;
+    position: relative; left: auto; right: auto;
+    margin-left: auto; margin-right: auto;
+    text-align: center;
+    bottom: 0pt; float: bottom;
+    padding: 5pt 15pt;
+    width: 100pt;
+    display:none;
+}
+
+.backtotop a {
+    font-size: 19pt;
+    text-decoration: none;
+    color: #000;
+    display:none;
+}
+
+
+
+
+
+/************** HOME CONTENT ***************/
+
+.row {
+    padding: 0pt 10pt;
+}
+
+.rowheader {
+    text-align: center;
+    font-size: 18pt;
+    margin-top: 25pt;
+    color: #000;
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+}
+
+.rowheader::after {
+    position: relative;
+    margin-right: auto;  margin-left: auto;
+    width: 15%;
+    height: 1pt;
+    margin-top: 5pt;
+    display: block;
+    content: '';
+    background: #000;
+    bottom: 0;
+    left: 0;
+}
+
+.column {
+    float: left; /* Set cards side by side */
+    width: 23%; 
+    padding: 1% 1%; /* Padding between card */
+    /* 
+    1%<----- 23% ----->1%<----- 23% ----->1%<----- 23% ----->1%<----- 23% ----->1%
+    */
+}
+
+.titlecard {
+    /*box-shadow: 0 4pt 8pt 0 rgba(0, 0, 0, 0.2);*/
+    padding: 0; /* Padding inside card */
+}
+
+.titlecard:hover {
+    opacity: .7;
+    /*box-shadow: 0 4pt 8pt 0 rgba(0, 0, 0, 0.5);*/
+}
+
+.cardimg {
+    float:left;
+    width: 100%;
+    margin-bottom: 0pt; /* space below image before text */
+    /*transition: 0.2s;*/
+}
+
+.cardtext {
+    padding: 0% 5%; /* title text inside card */
+    font-family: serif;
+    /*transition: 0.2s;*/
+}
+
+.cardtext h4 {
+    position: relative; top: 5pt;
+    font-size: 18pt;
+    padding-bottom: 0; margin-bottom: 0;
+}
+
+.cardtext p {
+    font-size: 15pt;
+    padding-top: 10pt; margin-top: 0;
+    padding-bottom: 5%;
+}
+
+
+.textdivider { /* Make height of text divider container change to fit the height of the image so when resized, the image stays the same */
+    position: relative;
+    width: auto; /*height: 50vh;*/
+    padding: 5pt 5pt 5pt 10pt; margin-top: 15pt;
+    /*box-shadow: 0pt 0pt 8pt 0pt rgba(0, 0, 0, 0.3);*/
+    height: fit-content;
+    display: inline-block;
+    object-fit: contain;
+    text-overflow: ellipsis; /* ellipsis does not work here */
+    overflow: hidden;
+}
+
+div.biopic {
+    position: relative; float: right; right: 5pt;
+    height: 100%; max-width: 35%; min-width: 10%;
+    object-fit: contain;
+}
+
+img.biopic {
+    position: relative;
+    display: block;
+    max-width: 100%; max-height: 100%;
+    margin-right: 0pt;
+}
+
+.biotextcontainer {
+    object-fit: contain; height:content-box;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 55%;
+    display: inline-block;
+    padding: 50pt 10pt 50pt 0;
+    margin: 0 0;
+    line-height: 1.4;
+    
+}
+
+.biotextcontainer div.textheader {
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.biotextcontainer .textheader {
+    text-overflow: ellipsis;
+    margin: 0 10pt 0 10pt;
+    font-size: 19pt;
+    height: 1em;
+    /*font-size: 2.6vh;*/
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+}
+
+.biotextcontainer p {
+    text-overflow: ellipsis;
+    margin: 0 10pt 0 10pt;
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-size: 16pt;
+    /*font-size: 1.9vh;*/
+}
+
+.aboutusbuttoncontainer {
+    margin-right: auto; margin-left: auto;
+    text-align: center;
+}
+
+.aboutusbutton { 
+    margin: 5pt 5pt;
+    display: inline-block;
+    padding: 5pt 10pt;
+    border: 1pt solid #000;
+    border-radius: 3pt;
+    /*box-sizing: border-box;*/
+    font-family: Georgia, serif;
+    font-size: 14pt;
+    background-color: #fff;
+    text-align: center;
+    /*transition: all 0.2s;*/
+}
+
+.aboutusbutton:hover {
+    color: #000000;
+    background-color: #fff;
+}
+
+/*Recipe home section */
+
+.recipecolumn {
+    display: inline-block;
+    float: left; /* Set cards side by side */
+    width: 23%; 
+    padding: 1% 1% 10pt 1%; /* Padding between card */
+    /* 
+    1%<----- 23% ----->1%<----- 23% ----->1%<----- 23% ----->1%<----- 23% ----->1%
+    */
+}
+
+.recipetitlecard {
+    display: inline-block;
+    /*box-shadow: 0 4pt 8pt 0 rgba(0, 0, 0, 0.2);*/
+    width: 100%; height: 275pt;
+    padding: 0; /* Padding inside card */
+}
+
+.recipetitlecard:hover {
+    opacity: .7;
+    /*box-shadow: 0 4pt 8pt 0 rgba(0, 0, 0, 0.5);*/
+}
+
+.recipecardimg {
+    float:left;
+    width: 100%; height: 170pt;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 0pt; /* space below image before text */
+}
+
+.recipecardtext {
+    padding: 0% 5%; /* title text inside card */
+    font-family: serif;
+}
+
+.recipecardtext h4 {
+    position: relative; top: 5pt;
+    font-size: 18pt;
+    font-style: normal;
+}
+
+.recipecardtitle {
+    position: relative; top: 5pt;
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-size: 17pt;
+    padding-top: 10pt;
+    padding-bottom: 10pt; margin-bottom: 0pt;
+    font-style: normal;
+    color: #000;
+}
+
+.recipesubtext {
+    font-size: 14pt;
+    font-family: Georgia, serif;
+    padding-top: 5pt; margin-top: 0pt;
+    padding-bottom: 5%;
+    font-style: italic;
+    color: #000;
+}
+
+
+/* Home article section */
+
+.articlecolumn {
+    float: left; /* Set cards side by side */
+    width: 46%; 
+    padding: 1% 1%; /* Padding between card */
+    /* 
+    3%<----- 46% ----->3%<----- 46% ----->3%
+    */
+}
+
+.articleblock {
+    /*box-shadow: 0 4pt 8pt 0 rgba(0, 0, 0, 0.2);*/
+    width: 100%; height: 445pt;
+    padding: 0; /* Padding inside card */
+}
+
+.articleblock:hover {
+    opacity: .7;
+    /*box-shadow: 0 4pt 8pt 0 rgba(0, 0, 0, 0.5);*/
+}
+
+.articleblockimg {
+    float:left;
+    width: 100%; height: 340pt;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 0pt; /* space below image before text */
+}
+
+.articleblocktext {
+    margin-top: 10pt;
+    padding: 10pt 5%; /* text inside card */
+    font-family: serif;
+    text-align: center;
+}
+
+.articleblocktitle {
+    position: relative; top: 10pt;
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-size: 17pt;
+    padding-top: 16pt;
+    padding-bottom: 12pt; margin-bottom: 0pt;
+    font-style: normal;
+    color: #000;
+}
+
+.articleblocksubtext {
+    font-size: 14pt;
+    font-family: Georgia, serif;
+    padding-top: 5pt; margin-top: 0pt;
+    padding-bottom: 5%;
+    font-style: italic;
+    color: #000;
+}
