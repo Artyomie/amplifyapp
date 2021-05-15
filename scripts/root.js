@@ -42,12 +42,12 @@ function scrollFunction() {
 
 function openNav() {
         document.getElementById("sidenav").style.width = "200px";
-        document.getElementById("hcontent").style.marginLeft = "200px";
+        document.getElementByClassName("content")[0].style.marginLeft = "200px";
 }
 
 function closeNav() {
         document.getElementById("sidenav").style.width = "0";
-        document.getElementById("hcontent").style.margin = "auto";
+        document.getElementById("content")[0].style.margin = "auto";
 }
  
 function loadDropDown() {

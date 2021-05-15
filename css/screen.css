@@ -425,6 +425,11 @@ div.contenttitle {
 }
 
 /* Custom page sizes */
+
+div.content#hcontent {
+    height: 350vh;
+}
+
 div.content#recipe {
     height: 1000px;
 }
@@ -434,18 +439,22 @@ div.content#recipe2 {
 }
 
 div.content#store {
-    height: 1800px;
+    height: 350vh;
 }
 
 div.content#about {
-    height: 800px;
+    height: 250vh;
+}
+
+div.content#recipem {
+    height: 450vh;
 }
 
 
 /************** BOTTOM BAR ***************/
 
 div.bottombar {
-    position: relative; bottom: 0; float: bottom;
+    position: relative; bottom: 0px; float: bottom;
     z-index: 6; 
     width: 100%; height: 150px;
     background-color: #433d4c;
@@ -845,6 +854,22 @@ JS function "addToCart() changes 'visibility: visible'"
     display: inline-block;
 }
 
+.newabouttextcontainer {
+    width: 50%;
+    line-height: 1.6;
+    
+    padding: 0px 10px;
+    margin: 0px 10px;
+    font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-size: 18px;
+    
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
+}
+
 
 
 div.aboutbiopic {
@@ -860,6 +885,18 @@ img.aboutbiopic {
     margin-right: 0px;
 }
 
+div.aboutcatpic {
+    position: relative; float: left; left: 5px;
+    height: 100%; max-width: 35%; min-width: 10%;
+    object-fit: contain;
+}
+
+img.aboutcatpic {
+    position: relative;
+    display: block;
+    max-width: 100%; max-height: 100%;
+    margin-left: 0px;
+}
 
 /* 3_RECIPE_MAIN CONTENT */
 
