@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<!-- - - - - - - - - - - - - - - - - - - - - - - -
+   - CSC-125 FINAL PROJECT - - - - - - - - - - - -
+   - Name: Artem Latypov
+   - Date: 5/14/2021
+   - Section: CSC-125
+   - Title: Final Project
+
+   - Created on : Apr 28, 2021, 7:14:42 AM
+   - Author     : Artem Latypov
+   - Store page for items to be added to the cart
+   - Javascript page adds items indexed on session Storage
+ - - - - - - - - - - - - - - - - - - - - - - - -->
+<html>
+    <head>
+        <title>Store Page</title>
+        <!-- Meta keywords to be included for SEO -Al -->
+        <meta charset="UTF-8">
+        <meta name="author" content="Artem Latypov">
+        <meta name="description" content="Online webstore and vegan recipe food blog">
+        <meta name="keywords" content="HTML, CSS, JavaScript, PHP, AWS, Amplify, Kitchen, Store,
+              Recipe, Vegan, herbs, garden, sustainability">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script src="../scripts/root.js"></script>
+        <link rel="stylesheet" href="../css/screen.css">
+        
+        <!-- Social media button icons external links from W3Schools -AL -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <a name="top"></a> <!-- To be linked back to top from bottom - AL -->
+        <!-- Logo header above toolbar when page is loaded-->
+        <div class="logo">
+            <img src="../img/logo_img (3).png" alt="Anyi's Kitchen!">
+        </div>
+        
+        <!-- Fixed header toolbar -->
+        <div class="fheader" id="iheader"> 
+            <a href="../index.html">Home</a>
+            <a class="active" href="1_storepage.html" >Store</a>
+            <a href="2_about.html">About</a>
+            <a href="3_recipe_main.html">Recipe Index</a>
+            <a href="4_articles.html">Articles</a>
+            <a href="5_registration.html">Sign In</a>
+            <a href="#cart" id="cart" onclick="openCart()">Cart</a>
+        </div>
+
+        <!-- Cart summary when opened -->
+        <div id="cartsummary" class="cartsummary">
+            <div class="cartheader">Shopping Cart</div>
+            <div class="items">
+                <!--
+                <div class="cartitemimg"></div>
+                <div class="cartitemtitle"></div>
+                <div class="cartitemprice"></div>
+                <div class="cartitemquantity"></div>
+                <div class="removebutton"></div>
+                -->
+            </div>
+            <div class ="cartbottomcontainer">
+                <div class="carttotal"></div>
+                <input class="checkoutbutton" type= "button" onclick="checkoutclick()" value="Checkout">
+            </div>
+        </div>
+        
+        <!-- Side navigation -->
+        <div id="sidenav" class="sidenav"> 
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            
+            <button class="navtitle">Recipes</button>
+            <div class="dropdowncontainer">
+                <div class="navbutton">
+                    <a href="3_recipe_main.html">All</a>
+                </div>
+                <div class="navbutton">
+                    <a href="3_recipe_main.html#recipefeatured">Featured</a>
+                </div>
+                <div class="navbutton">
+                    <a href="3_recipe_main.html#recipeappetizer">Appetizer</a>
+                </div>
+                <div class="navbutton">
+                    <a href="3_recipe_main.html#recipebreakfast">Breakfast</a>
+                </div>
+                <div class="navbutton">
+                    <a href="3_recipe_main.html#recipelunch">Lunch</a>
+                </div>
+                <div class="navbutton">
+                    <a href="3_recipe_main.html#recipedinner">Dinner</a>
+                </div>
+                <div class="navbutton">
+                    <a href="3_recipe_main.html#recipedessert">Dessert</a>
+                </div>
+            </div>
+            
+            <!-- Individual recipe links - AL -->
+            <button class="navtitle">Instructions</button>
+            <div class="dropdowncontainer">
+                <div class="navbutton">
+                    <a href="pages/recipe_chickpeacurry.html">Chickpea Curry</a>
+                </div>
+                <div class="navbutton">
+                    <a href="pages/recipe_earlcake.html">Earl Grey Sourdough Cake</a>
+                </div>
+                <div class="navbutton">
+                    <a href="pages/recipe_haupia.html">Haupia</a>
+                </div>
+                <div class="navbutton">
+                    <a href="pages/recipe_crabcakes.html">Crab Cakes</a>
+                </div>
+            </div>
+            
+            <button class="navtitle">Products</button>
+            <div class="dropdowncontainer">
+                <div class="navbutton">
+                    <a href="1_storepage.html#storebotanicals">Botanicals</a>
+                </div>
+                <div class="navbutton">
+                    <a href="1_storepage.html#storemedicinal">Medicinal</a>
+                </div>
+                <div class="navbutton">
+                    <a href="1_storepage.html#storefood">Food</a>
+                </div>
+                <div class="navbutton">
+                    <a href="1_storepage.html#storedrinks">Drinks</a>
+                </div>
+                <div class="navbutton">
+                    <a href="1_storepage.html#storebooks">Books</a>
+                </div>
+            </div>
+            
+            <button class="navtitle">Articles</button>
+            <div class="dropdowncontainer">
+                <div class="navbutton">
+                    <a href="#">Vegan Lifestyle</a>
+                </div>
+                <div class="navbutton">
+                    <a href="#">Sustainability</a>
+                </div>
+                <div class="navbutton">
+                    <a href="#">Gardening</a>
+                </div>
+            </div>
+
+            <button class="navtitle">Articles</button>
+            <div class="dropdowncontainer">
+                <div class="navbutton">
+                    <a href="0_template_page.html">Template</a>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="navbar" id="inav">
+            <span onclick="openNav()" class="navbutton">&#9776;</span>
+        </div>
+        
+        <div class="background">
+            
+            <!-- Display social media buttons on side, content from W3Schools - AL -->
+            <!-- I do not want to link actual social media of site subject (Anyi) on this project currently due to privacy - AL -->
+            <div class="sidecontactbuttons">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-google"></a>
+                <a href="#" class="fa fa-linkedin"></a>
+                <a href="#" class="fa fa-youtube"></a>
+                <a href="#" class="fa fa-instagram"></a>
+            </div>
+            
+            <div class="content" id="store">
+                
+                <!-- Store content cards that contain add to cart buttons that will add to sessionStorage and cart to be checked out - AL -->
+                <div class="contenttitle">
+                    Store Page
+                </div>
+                
+                    
+                <div class="storerow">
+                    <a name="storebotanicals"></a> <!-- marker to be linked to from side navigation - Al -->
+                    <div class="storerowheader" id="rowtop">
+                        Dried garden herbs
+                    </div>
+
+                    <div class="storecolumn">
+                        <div class="storetitlecard">
+                            <img src="../img/store/oreganoleaf.jpeg" alt="Oregano" class="itemimg">
+                            <div class="storecardtext">
+                                <p class="itemtitle">Oregano Leaf Jar 2oz</p>
+                                <p class="itemprice">$4.99</p>
+                                <input class="buybutton" type= "button" value="Add to Cart">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="storecolumn">
+                        <div class="storetitlecard">
+                            <img src="../img/store/rosemaryleaf.jpeg" alt="Rosemary" class="itemimg">
+                            <div class="storecardtext">
+                                <p class="itemtitle">Rosemary Leaf Jar 2oz</p>
+                                <p class="itemprice">$7.49</p>
+                                <input class="buybutton" type= "button" value="Add to Cart">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="storecolumn">
+                        <div class="storetitlecard">
+                            <img src="../img/store/thymeleaf.jpeg" alt="Thyme" class="itemimg">
+                            <div class="storecardtext">
+                                <p class="itemtitle">Thyme Leaf Jar 1oz</p>
+                                <p class="itemprice">$6.49</p>
+                                <input class="buybutton" type= "button" value="Add to Cart">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="storecolumn">
+                        <div class="storetitlecard">
+                            <img src="../img/store/sageleaf.jpg" alt="Sage" class="itemimg">
+                            <div class="storecardtext">
+                                <p class="itemtitle">Sage leaf bundle 1oz</p>
+                                <p class="itemprice">$2.99</p>
+                                <input class="buybutton" type= "button" value="Add to Cart">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="storerow">
+                    
+                    <div class="storecolumn">
+                        <div class="storetitlecard">
+                            <img src="../img/store/tarragonleaf.jpeg" alt="Tarragon" class="itemimg">
+                            <div class="storecardtext">
+                                <p class="itemtitle">Tarragon Leaf Jar 2oz</p>
+                                <p class="itemprice">$4.49</p>
+                                <input class="buybutton" type= "button" value="Add to Cart">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="storecolumn">
+                        <div class="storetitlecard">
+                            <img src="../img/store/chamomileflower.jpeg" alt="Chamomile" class="itemimg">
+                            <div class="storecardtext">
+                                <p class="itemtitle">Chamomile Flower Jar 2oz</p>
+                                <p class="itemprice">$6.99</p>
+                                <input class="buybutton" type= "button" value="Add to Cart">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="storecolumn">
+                        <div class="storetitlecard">
+                            <img src="../img/store/dill.jpeg" alt="Dill" class="itemimg">
+                            <div class="storecardtext">
+                                <p class="itemtitle">Dried Dill Jar 2oz</p>
+                                <p class="itemprice">$3.45</p>
+                                <input class="buybutton" type= "button" value="Add to Cart">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="storecolumn">
+                        <div class="storetitlecard">
+                            <img src="../img/store/passionflower.jpeg" alt="Passionflower" class="itemimg">
+                            <div class="storecardtext">
+                                <p class="itemtitle">Passion Flower Herb 1oz</p>
+                                <p class="itemprice">$6.49</p>
+                                <input class="buybutton" type= "button" value="Add to Cart">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <!-- Content fill content - AL --> 
+                <!-- To be replaced with new items (see below) - AL-->
+                <div class="storerow">
+
+                    <div class="storecolumn">
+                        <div class="storetitlecard">
+                            <img src="../img/store/oreganoleaf.jpeg" alt="Oregano" class="itemimg">
+                            <div class="storecardtext">
+                                <p class="itemtitle">Oregano Leaf Jar 4oz</p>
+                                <p class="itemprice">$8.99</p>
+                                <input class="buybutton" type= "button" value="Add to Cart">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="storecolumn">
+                        <div class="storetitlecard">
+                            <img src="../img/store/rosemaryleaf.jpeg" alt="Rosemary" class="itemimg">
+                            <div class="storecardtext">
+                                <p class="itemtitle">Rosemary Leaf Jar 4oz</p>
+                                <p class="itemprice">$13.99</p>
+                                <input class="buybutton" type= "button" value="Add to Cart">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="storecolumn">
+                        <div class="storetitlecard">
+                            <img src="../img/store/thymeleaf.jpeg" alt="Thyme" class="itemimg">
+                            <div class="storecardtext">
+                                <p class="itemtitle">Thyme Jar &nbsp;&nbsp; 2oz</p>
+                                <p class="itemprice">$11.99</p>
+                                <input class="buybutton" type= "button" value="Add to Cart">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="storecolumn">
+                        <div class="storetitlecard">
+                            <img src="../img/store/sageleaf.jpg" alt="Sage" class="itemimg">
+                            <div class="storecardtext">
+                                <p class="itemtitle">Sage leaf bundle 2oz</p>
+                                <p class="itemprice">$5.99</p>
+                                <input class="buybutton" type= "button" value="Add to Cart">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="storerow">
+                    <a name="storemedicinal"></a>
+                    <div class="storerowheader">
+                        Medicinal Plants & Extracts
+                    </div>
+
+                    <div class="storecolumn">
+                        <div class="storetitlecard">
+                            <img src="../img/store/elderberrytincture.jpeg" alt="Elderberrytincture" class="itemimg">
+                            <div class="storecardtext">
+                                <p class="itemtitle">Elderberry Tincture 1oz</p>
+                                <p class="itemprice">$10.99</p>
+                                <input class="buybutton" type= "button" value="Add to Cart">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="storecolumn">
+                        <div class="storetitlecard">
+                            <img src="../img/store/tincture1.jpeg" alt="Passionflower" class="itemimg">
+                            <div class="storecardtext">
+                                <p class="itemtitle">Passionflower Tincture 1oz</p>
+                                <p class="itemprice">$9.49</p>
+                                <input class="buybutton" type= "button" value="Add to Cart">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="storecolumn">
+                        <div class="storetitlecard">
+                            <img src="../img/store/tincture2.jpeg" alt="Holy Basil" class="itemimg">
+                            <div class="storecardtext">
+                                <p class="itemtitle">Holy Basil Extract 1oz</p>
+                                <p class="itemprice">$7.49</p>
+                                <input class="buybutton" type= "button" value="Add to Cart">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="storecolumn">
+                        <div class="storetitlecard">
+                            <img src="../img/store/herbaltea.jpeg" alt="herbaltea" class="itemimg">
+                            <div class="storecardtext">
+                                <p class="itemtitle">Herbal Tea Mix 1oz</p>
+                                <p class="itemprice">$2.99</p>
+                                <input class="buybutton" type= "button" value="Add to Cart">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="storerow">
+                    <a name="storefood"></a>
+                    <div class="storerowheader">
+                        Food Products
+                    </div>
+                    
+                </div>
+                
+                <div class="storerow">
+                    <a name="storedrinks"></a>
+                    <div class="storerowheader">
+                        Drinks
+                    </div>
+                    
+                </div>
+                
+                <div class="storerow"> <!-- Include a single item cookbook - AL -->
+                    <a name="storebooks"></a>
+                    <div class="storerowheader">
+                        Cook Books
+                    </div>
+                    
+                </div>
+                
+                <div id="addcartfadein">
+                    Item added to cart
+                </div>
+                
+            </div> <!-- Content End - AL -->
+            
+            <!-- Bottom bar - AL -->
+            <div class="bottombar">
+                <div class="bottomlinks">
+                    <a href="2_about.html">About</a>
+                    <a href="3_recipe_main.html">Contact</a>
+                    <a href="5_registration.html">Register</a>
+                </div>
+                <!-- I do not want to link actual social media of site subject (Anyi) on this project currently due to privacy - AL -->
+                <div class="contactbuttons"> <!-- Buttons taken from reference from W3Schools - Al -->
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-google"></a>
+                    <a href="#" class="fa fa-linkedin"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                </div>
+                <p class="bottomtext">
+                    <br><br>2021 Anyi's Kitchen. Website written and designed by Artem Latypov.
+                </p>
+                <div class="backtotop"> 
+                    <a href="#top">Back to top</a> 
+                </div>
+            </div>  
+                
+        </div>
+        
+    </body>
+</html>
+
+<!--
+Garden Products: (at least 12)
+- Rosemary X
+- Oregeno X
+- Thyme X
+- Sage + Sage Bundles X
+- Cilantro
+- Chamomile X
+- Dill X
+- Tarragon X
+- Lavender
+- Mullien
+- Shiso
+- Passion Flower
+- Parsely
+- Echincea
+
+Medicinal Extracts
+- Passion Flower Tincture X
+- Elderberry Tincture X
+- Beet extract powder
+- Lilac extract
+- Ginseng extract in Honey
+- Ashwaganda extract
+
+Food Products:
+- Chocolate
+
+Drinks:
+- Lilac Hawthorn Wine
+- Elderberry Wine
+- Red Shiso and Yuzu Soda
+- Tarragon Soda
+-->

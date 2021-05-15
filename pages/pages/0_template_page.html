@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!-- - - - - - - - - - - - - - - - - - - - - - - -
+   - CSC-125 FINAL PROJECT - - - - - - - - - - - -
+   - Name: Artem Latypov
+   - Date: 5/14/2021
+   - Section: CSC-125
+   - Title: Final Project
+
+   - Created on : Apr 29, 2021, 5:22:48 PM
+   - Author     : Artem Latypov
+   - Style template for all pages, includes side-bar nav, 
+   - logo, top header, cart summary, and content container
+   - All links, social media links, bottom bar, background
+ - - - - - - - - - - - - - - - - - - - - - - - -->
+<html>
+    <head>
+        <title>Demo Template Page</title>
+        <!-- Meta keywords to be included for SEO -Al -->
+        <meta charset="UTF-8">
+        <meta name="author" content="Artem Latypov">
+        <meta name="description" content="Online webstore and vegan recipe food blog">
+        <meta name="keywords" content="HTML, CSS, JavaScript, PHP, AWS, Amplify, Kitchen, Store,
+              Recipe, Vegan, herbs, garden, sustainability">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script src="../scripts/root.js"></script>
+        <link rel="stylesheet" href="../css/screen.css">
+        
+        <!-- Social media button icons external links from W3Schools -AL -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    
+    <body>
+        <a name="top"></a> <!-- To be linked back to top from bottom - AL -->
+        <!-- Logo header above toolbar when page is loaded - AL-->
+        <div class="logo">
+            <img src="../img/logo_img (3).png" alt="Anyi's Kitchen!">
+        </div>
+        
+        <!-- Fixed header toolbar -->
+        <div class="fheader" id="iheader"> 
+            <a href="../index.html">Home</a>
+            <a href="1_storepage.html" >Store</a>
+            <a href="2_about.html">About</a>
+            <a href="3_recipe_main.html">Recipe Index</a>
+            <a href="4_articles">Articles</a>
+            <a href="5_registration.html">Sign In</a>
+            <a href="#cart" id="cart" onclick="openCart()">Cart</a>
+        </div>
+
+        <!-- Cart summary when opened -->
+        <div id="cartsummary" class="cartsummary">
+            <div class="cartheader">Shopping Cart</div>
+            <div class="items">
+                <!-- Javascript Row content added here - AL-->
+            </div>
+            <div class ="cartbottomcontainer">
+                <div class="carttotal"></div>
+                <input class="checkoutbutton" type= "button" onclick="checkoutclick()" value="Checkout">
+            </div>
+        </div>
+        
+        <!-- Side navigation - AL-->
+        <div id="sidenav" class="sidenav"> 
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            
+            <button class="navtitle">Recipes</button>
+            <div class="dropdowncontainer">
+                <div class="navbutton">
+                    <a href="3_recipe_main.html">All</a>
+                </div>
+                <div class="navbutton">
+                    <a href="3_recipe_main.html#recipefeatured">Featured</a>
+                </div>
+                <div class="navbutton">
+                    <a href="3_recipe_main.html#recipeappetizer">Appetizer</a>
+                </div>
+                <div class="navbutton">
+                    <a href="3_recipe_main.html#recipebreakfast">Breakfast</a>
+                </div>
+                <div class="navbutton">
+                    <a href="3_recipe_main.html#recipelunch">Lunch</a>
+                </div>
+                <div class="navbutton">
+                    <a href="3_recipe_main.html#recipedinner">Dinner</a>
+                </div>
+                <div class="navbutton">
+                    <a href="3_recipe_main.html#recipedessert">Dessert</a>
+                </div>
+            </div>
+            
+            <!-- Individual recipe links - AL -->
+            <button class="navtitle">Instructions</button>
+            <div class="dropdowncontainer">
+                <div class="navbutton">
+                    <a href="pages/recipe_chickpeacurry.html">Chickpea Curry</a>
+                </div>
+                <div class="navbutton">
+                    <a href="pages/recipe_earlcake.html">Earl Grey Sourdough Cake</a>
+                </div>
+                <div class="navbutton">
+                    <a href="pages/recipe_haupia.html">Haupia</a>
+                </div>
+                <div class="navbutton">
+                    <a href="pages/recipe_crabcakes.html">Crab Cakes</a>
+                </div>
+            </div>
+            
+            <button class="navtitle">Products</button>
+            <div class="dropdowncontainer">
+                <div class="navbutton">
+                    <a href="1_storepage.html#storebotanicals">Botanicals</a>
+                </div>
+                <div class="navbutton">
+                    <a href="1_storepage.html#storemedicinal">Medicinal</a>
+                </div>
+                <div class="navbutton">
+                    <a href="1_storepage.html#storefood">Food</a>
+                </div>
+                <div class="navbutton">
+                    <a href="1_storepage.html#storedrinks">Drinks</a>
+                </div>
+                <div class="navbutton">
+                    <a href="1_storepage.html#storebooks">Books</a>
+                </div>
+            </div>
+            
+            <button class="navtitle">Articles</button>
+            <div class="dropdowncontainer">
+                <div class="navbutton">
+                    <a href="#">Vegan Lifestyle</a>
+                </div>
+                <div class="navbutton">
+                    <a href="#">Sustainability</a>
+                </div>
+                <div class="navbutton">
+                    <a href="#">Gardening</a>
+                </div>
+            </div>
+
+            <button class="navtitle">Other</button>
+            <div class="dropdowncontainer">
+                <div class="navbutton">
+                    <a href="0_template_page.html">Template</a>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="navbar" id="inav">
+            <span onclick="openNav()" class="navbutton">&#9776;</span>
+        </div>
+        
+        <div class="background">
+            
+            <!-- Display social media buttons on side, content from W3Schools - AL -->
+            <div class="sidecontactbuttons">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-google"></a>
+                <a href="#" class="fa fa-linkedin"></a>
+                <a href="#" class="fa fa-youtube"></a>
+                <a href="#" class="fa fa-instagram"></a>
+            </div>
+            
+            <div class="content" id="hcontent">
+                
+                <div class="contenttitle">
+                    Template Page
+                </div>
+                
+                <div class="row">
+
+                    <div class="column">
+                        <div class="titlecard" id="recipe1" onclick="clickrecipe1()">
+                            <img src="../img/img_lights.jpeg" alt="light" class="cardimg">
+                            <div class="cardtext">
+                                <h4>Card 1</h4>
+                                <p>Text text text text text text Text text text text text text Text text text text text text</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="titlecard">
+                            <img src="../img/img_mountains.jpeg" alt="mount" class="cardimg">
+                            <div class="cardtext">
+                                <h4>Card 2</h4>
+                                <p>Text text text text text text Text text text text text text Text text text text text text</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="titlecard">
+                            <img src="../img/img_snow.jpeg" alt="snow" class="cardimg">
+                            <div class="cardtext">
+                                <h4>Card 3</h4>
+                                <p>Text text text text text text Text text text text text text Text text text text text text</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="titlecard">
+                            <img src="../img/img_terra.jpeg" alt="terra" class="cardimg">
+                            <div class="cardtext">
+                                <h4>Card 4</h4>
+                                <p>Text text text text text text Text text text text text text Text text text text text text</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Bottom bar - AL -->
+            <div class="bottombar">
+                <div class="bottomlinks">
+                    <a href="2_about.html">About</a>
+                    <a href="3_recipe_main.html">Contact</a>
+                    <a href="5_registration.html">Register</a>
+                </div>
+                <div class="contactbuttons"> <!-- Class's linked to external style sheet from W3Schools - AL -->
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-google"></a>
+                    <a href="#" class="fa fa-linkedin"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                </div>
+                <p class="bottomtext"> <!-- Include name at bottom of every page - AL -->
+                    <br><br>2021 Anyi's Kitchen. Website written and designed by Artem Latypov.
+                </p>
+                <div class="backtotop"> 
+                    <a href="#top">Back to top</a> 
+                </div>
+            </div>  
+            
+        </div>
+        
+    </body>
+</html>
