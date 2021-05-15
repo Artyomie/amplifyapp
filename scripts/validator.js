@@ -41,12 +41,12 @@ window.addEventListener("load", function () {
         
         // When submit goes through - AL
         xmlhttp.addEventListener("load", function(event) {
-            //alert("Registration succesful");
+            alert("Registration succesful");
         });
 
         // Error sending request message  - AL
         xmlhttp.addEventListener("error", function(event) {
-            alert("There was an error sending your request, please try again");
+            alert("Registration succesful, error sending request");
         });
 
         //Send data to php file with POST - AL

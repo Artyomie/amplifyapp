@@ -418,8 +418,6 @@ div.sidecontactbuttons {
 
 /* Background image */
 div.background {
-    display:none;
-    background: url(../img/background.jpeg) repeat;
     position: absolute; z-index: 0;
     width: 100%;
     background-position: center;
@@ -523,8 +521,17 @@ div.backtotop {
 
 /************** HOME CONTENT ***************/
 
-.row {
+div.row {
     padding: 0pt 10pt;
+    float:none;
+    clear:both;
+    page-break-before:always;
+    page-break-after:always;
+}
+
+
+
+div.row{
 }
 
 .rowheader {
@@ -595,19 +602,19 @@ div.backtotop {
 
 .textdivider { /* Make height of text divider container change to fit the height of the image so when resized, the image stays the same */
     position: relative;
-    width: auto; /*height: 50vh;*/
+    width: 100%; /*height: 50vh;*/
+    height: 280pt;
     padding: 5pt 5pt 5pt 10pt; margin-top: 15pt;
     /*box-shadow: 0pt 0pt 8pt 0pt rgba(0, 0, 0, 0.3);*/
-    height: fit-content;
     display: inline-block;
-    object-fit: contain;
+
     text-overflow: ellipsis; /* ellipsis does not work here */
     overflow: hidden;
 }
 
 div.biopic {
     position: relative; float: right; right: 5pt;
-    height: 100%; max-width: 35%; min-width: 10%;
+    height: 100%; max-width: 30%; min-width: 10%;
     object-fit: contain;
 }
 
@@ -639,7 +646,7 @@ img.biopic {
 .biotextcontainer .textheader {
     text-overflow: ellipsis;
     margin: 0 10pt 0 10pt;
-    font-size: 19pt;
+    font-size: 16pt;
     height: 1em;
     /*font-size: 2.6vh;*/
     font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
@@ -649,7 +656,7 @@ img.biopic {
     text-overflow: ellipsis;
     margin: 0 10pt 0 10pt;
     font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-    font-size: 16pt;
+    font-size: 11pt;
     /*font-size: 1.9vh;*/
 }
 
@@ -680,19 +687,19 @@ img.biopic {
 /*Recipe home section */
 
 .recipecolumn {
-    display: inline-block;
+    display: inline;
     float: left; /* Set cards side by side */
-    width: 23%; 
-    padding: 1% 1% 10pt 1%; /* Padding between card */
+    width: 22%; 
+    padding: 2pt 1% 2pt 1%; /* Padding between card */
     /* 
     1%<----- 23% ----->1%<----- 23% ----->1%<----- 23% ----->1%<----- 23% ----->1%
     */
 }
 
 .recipetitlecard {
-    display: inline-block;
+    display: block;
     /*box-shadow: 0 4pt 8pt 0 rgba(0, 0, 0, 0.2);*/
-    width: 100%; height: 275pt;
+    width: 100%; height: 300pt;
     padding: 0; /* Padding inside card */
 }
 
@@ -716,14 +723,14 @@ img.biopic {
 
 .recipecardtext h4 {
     position: relative; top: 5pt;
-    font-size: 18pt;
+    font-size: 15pt;
     font-style: normal;
 }
 
 .recipecardtitle {
     position: relative; top: 5pt;
     font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-    font-size: 17pt;
+    font-size: 13pt;
     padding-top: 10pt;
     padding-bottom: 10pt; margin-bottom: 0pt;
     font-style: normal;
@@ -744,16 +751,18 @@ img.biopic {
 
 .articlecolumn {
     float: left; /* Set cards side by side */
-    width: 46%; 
-    padding: 1% 1%; /* Padding between card */
+    display: block;
+    width: 40%; 
+    padding: 1% 3pt; /* Padding between card */
     /* 
     3%<----- 46% ----->3%<----- 46% ----->3%
     */
 }
 
 .articleblock {
+    
     /*box-shadow: 0 4pt 8pt 0 rgba(0, 0, 0, 0.2);*/
-    width: 100%; height: 445pt;
+    width: 100%; height: 525pt;
     padding: 0; /* Padding inside card */
 }
 
@@ -780,8 +789,8 @@ img.biopic {
 .articleblocktitle {
     position: relative; top: 10pt;
     font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-    font-size: 17pt;
-    padding-top: 16pt;
+    font-size: 15pt;
+    padding-top: 13pt;
     padding-bottom: 12pt; margin-bottom: 0pt;
     font-style: normal;
     color: #000;
@@ -795,3 +804,5 @@ img.biopic {
     font-style: italic;
     color: #000;
 }
+
+
